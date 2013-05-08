@@ -1,0 +1,311 @@
+/*
+Theme Name: 	The J A Mortram
+Theme URI: 		http://bigflannel.com/the-j-a-mortram
+Description: 	A simple, elegant one column template with a fullscreen image slideshow. Designed for photo stories.
+License:		GNU General Public License v2 or later
+License URI:	http://www.gnu.org/licenses/gpl-2.0.html
+Version: 		1.01
+Author: 		Mike Hartley
+Author URI: 	http://bigflannel.com
+Tags: 			one-column, flexible-width, light, photoblogging
+*/
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+01 defaults ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+@import "css/reset.css";
+
+div,
+article,
+section,
+header,
+footer,
+nav,
+li {
+	position: relative;
+}
+.group:after {
+	display: block;
+	height: 0;
+	clear: both;
+	content: ".";
+	visibility: hidden; /* For clearing */
+}
+body {
+	line-height: 1.4em;
+	background-color: #f8f8f8;
+	color: #666666;
+}
+/* No underline and removes dotted line in Firefox, IE */
+a {
+	text-decoration:none;
+	outline: 0; 			/* Firefox */
+	border: none;			/* IE */
+	outline: none; 			/* IE */
+	color: #000000;
+}
+a:hover {
+	color: #999999;
+}
+a:active {
+	border: none;
+	outline: none;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+p {
+	margin: 0 0 1em 0;
+}
+form {
+	margin: 1em 0 0 0;
+}
+blockquote {
+	margin: 2em 0 2em 0;
+	padding: 0 2em 0 2em;
+	border-left: 3px solid #cccccc;
+}
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+02 typography -----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+/*
+14 / 16	= 		0.875em 		(14px equivalent)
+16 / 16	= 		1em 			(16px equivalent)
+18 / 16 = 		1.125em 		(18px equivalent)
+21 / 16 = 		1.3125em 		(21px equivalent)
+24 / 16 = 		1.5em 			(24px equivalent)
+30 / 16 = 		1.875em 		(30px equivalent)
+*/
+body,
+input,
+textarea {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	line-height: 1.6em;
+	font-weight: 300;
+}
+h1 {
+	font-family: "franklin-gothic-urw-cond",sans-serif;
+	font-weight: 700;
+	font-size: 1.4em;
+	line-height: 1.2em;
+	text-transform: uppercase;
+	text-align: center;
+	width: 90%;
+	margin: 1em auto;
+}
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1.4em;
+	line-height: 1.4em;
+	text-align: center;
+	width: 90%;
+	margin: 1em auto;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+03 Site styles ----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+body {
+	max-width: 43.75em;
+	margin: 0 auto;
+	padding: 0 1em 0 1em;
+}
+.meta {
+	font-size: .875em;
+	line-height: 1.4em
+}
+/* header */
+header h1 {	
+	font-size: 3em;
+}
+header h2 {
+	position: relative;
+	font-size: 1em;
+	top: -2.4em;
+}
+/* home / search / archive */
+.post-meta {
+	position: relative;
+	text-align: center;
+	width: 90%;
+	margin: 1em auto;
+	top: -1em;
+}
+.home img, .search img, .archive img {
+	float: left;
+	max-width: 50%;
+	margin: 0 1em 1em 0;
+}
+#post-nav {
+	text-transform: uppercase;
+	text-align: center;
+	margin: 1em 0 0 0;
+}
+/* page / post / error / page / widget */
+.single #content h1, .error404 #content h1, .page #content h1 {
+	color: #333333;
+}
+/* images */
+.alignleft {
+	float: left;
+	margin: 0 1em 0 0;
+}
+.alignright {
+	float: right;
+	margin: 0 0 0 1em;
+}
+.aligncenter {
+	display: block;
+	margin: 1em auto;
+}
+.wp-caption-text {
+	font-size: .875em;	
+}
+/* fullscreen images */
+#image-for-fullscreen { 
+	display: none;
+	text-align: center;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#image-for-fullscreen:-webkit-full-screen { 
+	background-color: #f8f8f8;
+}
+#image-for-fullscreen:-moz-full-screen { 
+	background-color: #f8f8f8;
+}
+#image-for-fullscreen:fullscreen { 
+	background-color: #f8f8f8;
+}
+#image-for-fullscreen header { 
+	padding-top: 32px;
+	height: 80px;
+}
+#image-for-fullscreen h1 { 
+	font-size: 1.4em;
+}
+#image-for-fullscreen nav {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 48px;
+}
+#image-prev, #image-next {
+	display: inline-block;
+	color: #000000;
+	cursor: pointer;
+}
+#image-prev:hover, #image-next:hover {
+	display: inline-block;
+	color: #999999;
+}
+/* comments */
+#comments {
+	margin: 3em 0 0 0;
+}
+#comments h4 {
+	font-family: "franklin-gothic-urw-cond",sans-serif;
+	font-weight: 700;
+	font-size: 1em;
+	text-align: left;
+	width: 100%;
+	margin: 0 0 0 0;
+}
+#comments img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	max-width: 4em;	
+}
+#comments article {
+	padding: 0 0 0 5em;
+}
+#respond {
+	text-align: center;
+}
+#comment {
+	width: 100%;
+	height: 10em;
+}
+.children {
+	margin-left: 1em;
+}
+a#cancel-comment-reply-link {
+	display: block;
+	font-size: .725em;
+}
+/* footer */
+footer {
+	text-align: center;
+	margin: 3em 0 0 0;
+	padding-bottom: 10em;
+}
+#donate, #site {
+	text-transform: uppercase;
+	text-align: center;
+	margin: 1em 0 0 0;
+}
+nav {
+	line-height: 2em;
+}
+nav li {
+	display: inline;
+	margin: 0 1em 0 0;
+}
+nav li:last-child {
+	margin: 0 0 0 0;
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+04 media queries (using a mobile-first approach) ------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+/* 400 and up */
+@media screen and (max-width:45.75em) {
+	body.home p, body.search p, body.archive p {
+		max-width: 28.125em;
+		margin: 0 auto;
+	}
+	.home img, .search img, .archive img {
+		float: none;
+		max-width: 100%;
+		margin: 1em auto;
+	}
+}
+/* Retina Display */
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+	{ /* Place your styles here for all 'Retina' screens */ }
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+05 additional wordpress css you might use -------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+.sticky, .gallery-caption, .bypostauthor {
+}
+

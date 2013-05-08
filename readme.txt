@@ -1,0 +1,58 @@
+== The J A Mortram == 
+
+= Created by Mike Hartley (bigflannel) and JA Mortram =
+
+A simple, elegant one column WordPress template with a fullscreen image slideshow. Designed for photo stories.
+
+For more information, please visit:
+http://bigflannel.com/the-j-a-mortram
+
+Copyright (c) 2013 bigflannel, Mike Hartley, Jim Mortram
+
+Licensed under the GNU General Public License
+(See http://www.gnu.org/licenses/gpl-2.0.html)
+
+
+
+== Features and Use ==
+
+= Media Settings =
+
+Recommended settings:
+
+thumbnail 1200 x 300
+uncheck crop thumbnail
+medium 2400 x 600
+large 4800 x 1200
+
+= Post Format : Gallery =
+
+Use this format to activate fullscreen image display on a post (in those browsers that support it). All images in the post must be uploaded through the post, if you want to use an image in two posts with format gallery, you must upload the image twice.
+
+= Menu Options =
+
+The theme can display two menus before the page footer: 'donate' and 'site'. If it exists, 'donate' is shown first, then 'site'. 'Site' displays the default menu if none set.
+
+= Footer Copyright =
+
+Set the text displayed after the footer copyright text (© 2013) using theme settings and 'Copyright Statement for Footer'.
+
+= Google Analytics =
+
+Set your Google Analytics tracking ID using theme settings and 'Google Analytics Tracking ID'.
+
+
+
+== Changelog ==
+
+= 1.01 =
+
+* April 16, 2013.
+
+* 'Donate' menu only displays if set.
+
+* README now includes information on menu options, theme settings.
+
+= 1.0 =
+
+* Initial release. April 2013.
