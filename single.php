@@ -45,7 +45,15 @@
 					<?php the_content(); ?>
 				</div>
 				<?php wp_link_pages(); ?> 
-				<h3><?php the_tags('More stories about ', ', ', ''); ?></h3>		
+				<h3><?php the_tags('More stories about ', ', ', ''); ?></h3>
+				
+				<nav class="categories meta">
+					<?php 
+						$args = array('title_li' => __( '' ));
+						wp_list_categories($args);
+					?>
+				</nav>
+						
 				<?php comments_template( '', true ); ?>
 			</article>
 		<?php endwhile; ?>

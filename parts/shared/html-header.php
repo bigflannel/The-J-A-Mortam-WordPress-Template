@@ -16,10 +16,6 @@
 		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/html5.js"></script>
 		<![endif]-->
 		
-		<!-- fonts -->
-		<!-- open sans from google -->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,300,600' rel='stylesheet' type='text/css'>
-		
 		<!-- template options -->
 		<?php
 			global $jam_options, $jam_settings;

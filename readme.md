@@ -48,6 +48,16 @@ Set your Google Analytics tracking ID using theme settings and 'Google Analytics
 
 # Changelog
 
+### 1.03
+
+May 21, 2013.
+
+Added a link to the post date if there is no post title. Added this to index.php, archive.php and search.php.
+Excerpt text is now set in functions.php as 'This post is password protected.'
+Google Font CSS now enqueued in functions.php.
+Categories now displayed on single post page.
+Amended screenshot.png
+
 ### 1.02
 
 May 8, 2013.

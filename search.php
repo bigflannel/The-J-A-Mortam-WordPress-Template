@@ -18,9 +18,12 @@
 	<?php while ( have_posts() ) : the_post(); ?>
 		<li class="group">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<h1><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-				<div class="meta post-meta"><time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_date(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments', '', ''); ?></div>
-				<?php if ( has_post_thumbnail() ) { ?>
+				<?php if (get_the_title() == '') { ?>
+					<div class="meta post-meta"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_date(); ?></time></a> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments', '', ''); ?></div>
+				<?php } else { ?>
+					<h1><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+					<div class="meta post-meta"><time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_date(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments', '', ''); ?></div>
+				<?php } ?>				<?php if ( has_post_thumbnail() ) { ?>
 					<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_post_thumbnail('thumbnail'); ?></a>
 				<?php } ?>
 				<?php the_excerpt(); ?>	

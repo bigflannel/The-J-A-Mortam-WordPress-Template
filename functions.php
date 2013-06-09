@@ -57,6 +57,13 @@
 	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
+	
+	function my_excerpt_protected( $excerpt ) {
+	    if ( post_password_required() )
+	        $excerpt = 'This post is password protected.';
+	    return $excerpt;
+	}
+	add_filter( 'the_excerpt', 'my_excerpt_protected' );
 
 	/* ========================================================================================================================
 	
@@ -81,13 +88,17 @@
 	 */
 
 	function starkers_script_enqueuer() {
+		/* open sans from google */
+		wp_register_script( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,300,600' );
+		wp_enqueue_script( 'fonts' );
+	
 		wp_register_script( 'fullscreen', get_template_directory_uri().'/js/jquery.fullscreen-min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'fullscreen' );
 		
 		wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 		wp_enqueue_script( 'site' );
 
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
+		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css' );
         wp_enqueue_style( 'screen' );
 	}
 	
