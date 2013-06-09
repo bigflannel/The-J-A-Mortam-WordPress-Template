@@ -89,8 +89,8 @@
 
 	function starkers_script_enqueuer() {
 		/* open sans from google */
-		wp_register_script( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,300,600' );
-		wp_enqueue_script( 'fonts' );
+		wp_register_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,300,600' );
+		wp_enqueue_style( 'fonts' );
 	
 		wp_register_script( 'fullscreen', get_template_directory_uri().'/js/jquery.fullscreen-min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'fullscreen' );

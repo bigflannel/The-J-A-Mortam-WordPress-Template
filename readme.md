@@ -48,6 +48,12 @@ Set your Google Analytics tracking ID using theme settings and 'Google Analytics
 
 # Changelog
 
+### 1.04
+
+June 9, 2013.
+
+Fixed they way Google Font CSS enqueued.
+
 ### 1.03
 
 May 21, 2013.
