@@ -36,14 +36,14 @@
 	add_theme_support('post-formats', array('gallery'));
 	
 	register_nav_menus(array(
-		'site' => 'Site Navigation',
-		'donate' => 'Donate'
+		'site' => __('Site Navigation','The J A Mortram'),
+		'donate' => __('Donate','The J A Mortram')
 	));
 	
 	register_sidebar(array(
-		'name' => __( 'Footer' ),
+		'name' => __('Footer','The J A Mortram'),
 		'id' => 'footer-sidebar',
-		'description' => __( 'Widgets in this area will be shown in the footer.' ),
+		'description' => __('Widgets in this area will be shown in the footer.','The J A Mortram'),
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
 	));
@@ -110,9 +110,9 @@
 	function my_search_form( $form ) {
 	
 	    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-	    <div><label class="screen-reader-text" for="s">' . __('') . '</label>
+	    <div><label class="screen-reader-text" for="s">' . __('','The J A Mortram') . '</label>
 	    <input type="text" value="' . get_search_query() . '" name="s" id="s" />
-	    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+	    <input type="submit" id="searchsubmit" value="'. esc_attr__('Search','The J A Mortram') .'" />
 	    </div>
 	    </form>';
 	
@@ -129,7 +129,8 @@
 	function jam_validate_options($input) {
 	    global $jam_options;
 		$settings = get_option( 'jam_options', $jam_options );
-		// Strip all tags from the text field, to avoid vulnerablilties like XSS
+		// Strip all tags from the text fields, to avoid vulnerablilties like XSS
+		$input['copyright_statement_footer'] = wp_filter_nohtml_kses( $input['copyright_statement_footer'] );
 		$input['google_analytics_tracking_id'] = wp_filter_nohtml_kses( $input['google_analytics_tracking_id'] );
 		return $input;
 	}
@@ -146,7 +147,7 @@
 	 */
 	 
 	function jam_admin_theme_options() {
-	    add_theme_page('The J A Mortram Options', 'The J A Mortram', 'administrator', 'the-j-a-mortram-options', 'jam_admin_options_page');
+	    add_theme_page(__('The J A Mortram Options','The J A Mortram'), __('The J A Mortram','The J A Mortram'), 'administrator', 'the-j-a-mortram-options', 'jam_admin_options_page');
 	}
 	
 	function jam_admin_options_page() { 
@@ -157,15 +158,18 @@
 	        <div class="wrap">
 	            <?php screen_icon('themes'); ?> <h2>The J A Mortram Settings</h2>
 	            <?php if ( false !== $_REQUEST['settings-updated'] ) { ?>
-	            	<div class="updated fade"><p><strong><?php __( 'Options saved' ); ?></strong></p></div>
+	            	<div class="updated fade"><p><?php _e('Settings saved','The J A Mortram'); ?></p></div>
 	            <?php } ?>
 	            <form method="post" action="options.php">
 	            	<?php $settings = get_option( 'jam_options', $jam_options ); ?>
 	            	<?php settings_fields( 'jam_theme_options' ); ?>
+	            	<?php if (!isset($settings['show_social_media_share'])) {
+	            		$settings['show_social_media_share'] = false;
+	            	} ?>
 					<table class="form-table">
 						<tr valign="top">
 							<th scope="row">
-								<label for="copyright_statement_footer">Copyright Statement for Footer</label>
+								<label for="copyright_statement_footer"><?php _e('Copyright statement for footer','The J A Mortram'); ?></label>
 							</th>
 							<td>
 								<input id="copyright_statement_footer" name="jam_options[copyright_statement_footer]" type="text" value="<?php  esc_attr_e($settings['copyright_statement_footer']); ?>" />
@@ -173,10 +177,18 @@
 						</tr>
 						<tr valign="top">
 							<th scope="row">
-								<label for="google_analytics_tracking_id">Google Analytics Tracking ID</label>
+								<label for="google_analytics_tracking_id"><?php _e('Google Analytics tracking ID','The J A Mortram'); ?> <?php  echo esc_attr_e($settings['google_analytics_tracking_id']); ?></label>
 							</th>
 							<td>
 								<input id="google_analytics_tracking_id" name="jam_options[google_analytics_tracking_id]" type="text" value="<?php  esc_attr_e($settings['google_analytics_tracking_id']); ?>" />
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row">
+								<label for="show_social_media_share"><?php _e('Add "Share This Story" to Posts','The J A Mortram'); ?></label>
+							</th>
+							<td>
+								<input id="show_social_media_share" name="jam_options[show_social_media_share]" type="checkbox" value="true" <?php if ($settings['show_social_media_share']) { ?>checked<?php } ?>>
 							</td>
 						</tr>
 	                </table>
@@ -206,11 +218,11 @@
 		<li>
 			<article id="comment-<?php comment_ID() ?>" class="group">
 				<?php if ($comment->comment_approved == '0') : ?>
-					<em><?php __('Your comment is awaiting moderation.') ?></em>
+					<em><?php __('Your comment is awaiting moderation.','The J A Mortram') ?></em>
 				<?php endif; ?>
 				<?php echo get_avatar( $comment ); ?>
 				<h4><?php comment_author_link() ?></h4>
-				<time datetime="<?php comment_date('Y-m-d'); ?>T<?php comment_time('h:i'); ?>" class="meta"><a href="#comment-<?php comment_ID() ?>"><?php comment_date() ?> at <?php comment_time() ?></a></time> <span class="meta"><?php comment_reply_link( array_merge( $args, array( 'reply_text' => __('&rarr; Reply'), 'after' => '', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></span>
+				<time datetime="<?php comment_date(__('Y-m-d','The J A Mortram')); ?> <?php comment_time(__('h:i','The J A Mortram')); ?>" class="meta"><a href="#comment-<?php comment_ID() ?>"><?php comment_date() ?> <?php _e('at','The J A Mortram'); ?> <?php comment_time() ?></a></time> <span class="meta"><?php comment_reply_link( array_merge( $args, array( 'reply_text' => __('&rarr; Reply','The J A Mortram'), 'after' => '', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></span>
 				<?php comment_text() ?>
 			</article>
 		<?php 

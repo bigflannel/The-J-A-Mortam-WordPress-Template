@@ -17,6 +17,8 @@
 		<script type="text/javascript">
 			jQuery(document).ready(function() {
 				if (jQuery('body').hasClass('single-format-gallery')) {
+					// pass the URL to js
+					themeDirectoryURI = '<?php echo get_stylesheet_directory_uri(); ?>';
 					singleConstructor();
 				}
 			});

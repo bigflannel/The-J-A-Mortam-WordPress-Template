@@ -38,6 +38,10 @@ Use this format to activate fullscreen image display on a post (in those browser
 
 The theme can display two menus before the page footer: 'donate' and 'site'. If it exists, 'donate' is shown first, then 'site'. 'Site' displays the default menu if none set.
 
+### Widget Options
+
+The default widget in the footer is search, widgets you add will replace it and be stacked vertically.
+
 ### Footer Copyright
 
 Set the text displayed after the footer copyright text (© 2013) using theme settings and 'Copyright Statement for Footer'.
@@ -46,7 +50,21 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 Set your Google Analytics tracking ID using theme settings and 'Google Analytics Tracking ID'.
 
+### Social Media Share Buttons
+
+Set whether too add Twitter, Facebook and Google+ share buttons at the end of a post.
+
 # Changelog
+
+### 1.05
+
+June 16, 2013.
+
+Added navigation by keystroke to fullscreen image slideshow.
+Added a fullscreen icon on rollover to images that go fullscreen.
+Amended all page titles to be post title | blog title, not blog title | post title.
+Added option to show Twitter, Facebook and Google+ share buttons at the end of a post.
+Internationalized all text in theme.
 
 ### 1.04
 
@@ -75,7 +93,6 @@ Amended readme.txt to be readme.md and updated the text.
 April 16, 2013.
 
 'Donate' menu only displays if set.
-
 README now includes information on menu options, theme settings.
 
 ### 1.0

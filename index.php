@@ -22,10 +22,10 @@
 		<li class="group">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if (get_the_title() == '') { ?>
-					<div class="meta post-meta"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_date(); ?></time></a> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments', '', ''); ?></div>
+					<div class="meta post-meta"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><time datetime="<?php the_time( __('Y-m-d','The J A Mortram') ); ?>"><?php the_date(); ?></time></a> <?php comments_popup_link( __('Leave a Comment','The J A Mortram'), __('1 Comment','The J A Mortram'), __('% Comments','The J A Mortram'), '', '' ); ?></div>
 				<?php } else { ?>
 					<h1><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-					<div class="meta post-meta"><time datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_date(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments', '', ''); ?></div>
+					<div class="meta post-meta"><time datetime="<?php the_time( __('Y-m-d','The J A Mortram') ); ?>"><?php the_date(); ?></time> <?php comments_popup_link( __('Leave a Comment','The J A Mortram'), __('1 Comment','The J A Mortram'), __('% Comments','The J A Mortram' ), '', ''); ?></div>
 				<?php } ?>
 				<?php if ( has_post_thumbnail() ) { ?>
 					<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_post_thumbnail('thumbnail'); ?></a>
@@ -36,12 +36,12 @@
 	<?php endwhile; ?>
 	</ul><!-- .group -->
 	<nav id="post-nav">
-		<?php echo get_previous_posts_link('More'); ?> 
+		<?php echo get_previous_posts_link( __('More','The J A Mortram') ); ?> 
 		<?php if (get_previous_posts_link() && get_next_posts_link()) { echo ' | '; } ?>
-		<?php echo get_next_posts_link('Prev'); ?>
+		<?php echo get_next_posts_link( __('Prev','The J A Mortram' ) ); ?>
 	</nav>
 	<?php else: ?>
-	<h2>No posts to display</h2>
+		<h2><?php _e('No posts to display','The J A Mortram'); ?></h2>
 	<?php endif; ?>
 </div><!-- #content -->
 

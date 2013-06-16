@@ -6,6 +6,7 @@
  (See http://www.gnu.org/licenses/gpl-2.0.html)
 */
 
+var themeDirectoryURI;
 var imagesOnPage;
 var imageOrderOnPageByID = new Array();
 var screenWidth;
@@ -124,11 +125,25 @@ var setFullscreenNav = function () {
 var addExitFullscreen = function () {
 	// hide images when drop back from fullscreen
 	jQuery(document).bind("fullscreenchange", function() {
+	    if (jQuery(document).fullScreen()) {
+	    	// listen for key presses
+	    	jQuery(document).keyup(fullscreenKeyPress);
+	    }
 	    if (jQuery(document).fullScreen() == false) {
+	    	jQuery(document).unbind("keyup", fullscreenKeyPress);
 	    	jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','none');
 	    	jQuery('#image-for-fullscreen').css('display','none');
 	    }
 	});
+}
+
+var fullscreenKeyPress = function (e) {
+	if (e.keyCode == 39 || e.keyCode == 190) {
+		nextClicked();
+	}
+	if (e.keyCode == 37 || e.keyCode == 188) {
+		prevClicked();
+	}
 }
 
 var addFullscreenNavClickHandler = function () {
@@ -159,6 +174,19 @@ var nextClicked = function () {
 	setFullscreenNav();
 }
 
+var addFullscreenIcon = function () {
+	jQuery('#the-content img').hover(
+		function() {
+			var positionLeft = ((700 - jQuery(this).width())/2)+5;
+			jQuery(this).after('<img class="fullscreen-rollover" src="' + themeDirectoryURI + '/img/fullscreen.png">');
+			jQuery('.fullscreen-rollover').css('left',positionLeft);
+		},
+		function() {
+			jQuery('.fullscreen-rollover').remove();
+		}
+	);
+}
+
 function singleConstructor() {
 	if (jQuery(document).fullScreen() != null) {
 		// get an array of images in the content of the page by ID by order on page
@@ -169,6 +197,8 @@ function singleConstructor() {
 		addImageClickHandler();
 		// add leaving fullscreen handler
 		addExitFullscreen();
+		// add image rollover
+		addFullscreenIcon();
 		// add the fullscreen nav click handler
 		addFullscreenNavClickHandler();
 	}

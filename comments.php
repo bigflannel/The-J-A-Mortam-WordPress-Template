@@ -14,7 +14,7 @@
 ?>
 <div id="comments">
 	<?php if ( post_password_required() ) : ?>
-	<p>This post is password protected. Enter the password to view any comments</p>
+	<p><?php _e('This post is password protected. Enter the password to view any comments','The J A Mortram'); ?></p>
 </div><!-- #comments -->
 	<?php 
 		return;
@@ -29,7 +29,7 @@
 	<?php endif; ?>	
 	<?php $comments_args = array(
 	        // change the title of the reply section
-	        'title_reply'=>'Leave a Comment',
+	        'title_reply'=>__('Leave a Comment','The J A Mortram'),
 	        // remove "Text or HTML to be displayed after the set of comment fields"
 	        'comment_notes_after' => '',
 	        // redefine your own textarea (the comment body)
