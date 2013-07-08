@@ -6,7 +6,6 @@
  (See http://www.gnu.org/licenses/gpl-2.0.html)
 */
 
-var themeDirectoryURI;
 var imagesOnPage;
 var imageOrderOnPageByID = new Array();
 var screenWidth;
@@ -178,7 +177,8 @@ var addFullscreenIcon = function () {
 	jQuery('#the-content img').hover(
 		function() {
 			var positionLeft = ((700 - jQuery(this).width())/2)+5;
-			jQuery(this).after('<img class="fullscreen-rollover" src="' + themeDirectoryURI + '/img/fullscreen.png">');
+			// data passed to site.js in functions.php / starkers_script_enqueuer
+			jQuery(this).after('<img class="fullscreen-rollover" src="' + jam_data.stylesheet_directory_uri + '/img/fullscreen.png">');
 			jQuery('.fullscreen-rollover').css('left',positionLeft);
 		},
 		function() {
@@ -187,7 +187,7 @@ var addFullscreenIcon = function () {
 	);
 }
 
-function singleConstructor() {
+var singleConstructor = function() {
 	if (jQuery(document).fullScreen() != null) {
 		// get an array of images in the content of the page by ID by order on page
 		getImagesByID();
@@ -204,3 +204,8 @@ function singleConstructor() {
 	}
 }
 
+jQuery(document).ready(function() {
+	if (jQuery('body').hasClass('single-format-gallery')) {
+		singleConstructor();
+	}
+});

@@ -46,15 +46,22 @@ The default widget in the footer is search, widgets you add will replace it and 
 
 Set the text displayed after the footer copyright text (© 2013) using theme settings and 'Copyright Statement for Footer'.
 
-### Google Analytics
-
-Set your Google Analytics tracking ID using theme settings and 'Google Analytics Tracking ID'.
-
 ### Social Media Share Buttons
 
 Set whether too add Twitter, Facebook and Google+ share buttons at the end of a post.
 
 # Changelog
+
+### 1.06
+
+July 8, 2013.
+
+In functions.php, content width, add theme support and register nav menus wrapped in a function 'jam_theme_setup' and added to 'after_setup_theme' action.
+In functions.php, register sidebar wrapped in function 'jam_register_sidebar' and added to 'widgets_init' action.
+Javascript call on gallery posts now called from site.js, rather than html-footer.php.
+WordPress data passed to site.js using wp_localize_script in functions.php / starkers_script_enqueuer.
+Amended theme javascript to only load on pages it is needed (single.php in post format gallery).
+Google Analytics removed from theme options.
 
 ### 1.05
 
@@ -70,7 +77,7 @@ Internationalized all text in theme.
 
 June 9, 2013.
 
-Fixed they way Google Font CSS enqueued.
+Fixed the way Google Font CSS enqueued.
 
 ### 1.03
 

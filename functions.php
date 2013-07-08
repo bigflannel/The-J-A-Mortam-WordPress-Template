@@ -1,9 +1,5 @@
 <?php
 	/**
-	 * Starkers functions and definitions
-	 *
-	 * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
-	 *
  	 * @package 	WordPress
  	 * @subpackage 	The J A Mortram
  	 * @since 		1.0
@@ -19,96 +15,87 @@
 
 	/* ========================================================================================================================
 	
-	Theme specific settings
-
-	Uncomment register_nav_menus to enable a single menu with the title of "Primary Navigation" in your theme
-	
-	======================================================================================================================== */
-	
-	if (!isset($content_width)) {
-		$content_width = 700;
-	}
-	
-	add_theme_support('post-thumbnails');
-	
-	add_theme_support('automatic-feed-links');
-	
-	add_theme_support('post-formats', array('gallery'));
-	
-	register_nav_menus(array(
-		'site' => __('Site Navigation','The J A Mortram'),
-		'donate' => __('Donate','The J A Mortram')
-	));
-	
-	register_sidebar(array(
-		'name' => __('Footer','The J A Mortram'),
-		'id' => 'footer-sidebar',
-		'description' => __('Widgets in this area will be shown in the footer.','The J A Mortram'),
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-	
-	/* ========================================================================================================================
-	
-	Actions and Filters
-	
-	======================================================================================================================== */
-
-	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
-
-	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
-	
-	function my_excerpt_protected( $excerpt ) {
-	    if ( post_password_required() )
-	        $excerpt = 'This post is password protected.';
-	    return $excerpt;
-	}
-	add_filter( 'the_excerpt', 'my_excerpt_protected' );
-
-	/* ========================================================================================================================
-	
-	Custom Post Types - include custom post types and taxonimies here e.g.
-
-	e.g. require_once( 'custom-post-types/your-custom-post-type.php' );
-	
-	======================================================================================================================== */
-
-
-	/* ========================================================================================================================
-	
 	Scripts
 	
 	======================================================================================================================== */
-
+	
+	function jam_theme_setup() {
+		if (!isset($content_width)) {
+			$content_width = 700;
+		}
+		
+		add_theme_support('post-thumbnails');
+		
+		add_theme_support('automatic-feed-links');
+		
+		add_theme_support('post-formats', array('gallery'));
+		
+		register_nav_menus(array(
+			'site' => __('Site Navigation','The J A Mortram'),
+			'donate' => __('Donate','The J A Mortram')
+		));
+	}
+	
+	add_action( 'after_setup_theme', 'jam_theme_setup' );
+	
 	/**
-	 * Add scripts via wp_head()
+	 * add scripts via wp_head()
 	 *
-	 * @return void
-	 * @author Keir Whitaker
 	 */
 
 	function starkers_script_enqueuer() {
 		/* open sans from google */
 		wp_register_style( 'fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,600italic,300,600' );
 		wp_enqueue_style( 'fonts' );
-	
-		wp_register_script( 'fullscreen', get_template_directory_uri().'/js/jquery.fullscreen-min.js', array( 'jquery' ) );
-		wp_enqueue_script( 'fullscreen' );
 		
-		wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
-		wp_enqueue_script( 'site' );
+		if ( is_single() ) {
+			wp_register_script( 'fullscreen', get_template_directory_uri().'/js/jquery.fullscreen-min.js', array( 'jquery' ) );
+			wp_enqueue_script( 'fullscreen' );
+		
+			wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
+			wp_enqueue_script( 'site' );
+			
+			$data = array('stylesheet_directory_uri' => __(get_stylesheet_directory_uri()));
+			
+			wp_localize_script('site', 'jam_data', $data);
+		}
 
 		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css' );
         wp_enqueue_style( 'screen' );
 	}
+	
+	add_action( 'wp_enqueue_scripts', 'starkers_script_enqueuer' );
+		
+	/**
+	 * add css class to body
+	 *
+	 */
+	
+	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
+	
+	/**
+	 * register sidebar
+	 *
+	 */
+	 
+	 function jam_register_sidebar() {
+			register_sidebar(array(
+				'name' => __('Footer','The J A Mortram'),
+				'id' => 'footer-sidebar',
+				'description' => __('Widgets in this area will be shown in the footer.','The J A Mortram'),
+				'before_title' => '<h3>',
+				'after_title' => '</h3>'
+			));
+		}
+	
+	add_action( 'widgets_init', 'jam_register_sidebar' );
 	
 	/**
 	 * customize the search form
 	 *
 	 */
 	
-	function my_search_form( $form ) {
-	
+	function jam_search_form( $form ) {
 	    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
 	    <div><label class="screen-reader-text" for="s">' . __('','The J A Mortram') . '</label>
 	    <input type="text" value="' . get_search_query() . '" name="s" id="s" />
@@ -119,7 +106,20 @@
 	    return $form;
 	}
 	
-	add_filter( 'get_search_form', 'my_search_form' );
+	add_filter( 'get_search_form', 'jam_search_form' );
+	
+	/**
+	 * customize protected excerpt
+	 *
+	 */
+	
+	function jam_excerpt_protected( $excerpt ) {
+	    if ( post_password_required() )
+	        $excerpt = 'This post is password protected.';
+	    return $excerpt;
+	}
+	
+	add_filter( 'the_excerpt', 'jam_excerpt_protected' );
 	
 	/**
 	 * register site options
@@ -173,14 +173,6 @@
 							</th>
 							<td>
 								<input id="copyright_statement_footer" name="jam_options[copyright_statement_footer]" type="text" value="<?php  esc_attr_e($settings['copyright_statement_footer']); ?>" />
-							</td>
-						</tr>
-						<tr valign="top">
-							<th scope="row">
-								<label for="google_analytics_tracking_id"><?php _e('Google Analytics tracking ID','The J A Mortram'); ?> <?php  echo esc_attr_e($settings['google_analytics_tracking_id']); ?></label>
-							</th>
-							<td>
-								<input id="google_analytics_tracking_id" name="jam_options[google_analytics_tracking_id]" type="text" value="<?php  esc_attr_e($settings['google_analytics_tracking_id']); ?>" />
 							</td>
 						</tr>
 						<tr valign="top">
