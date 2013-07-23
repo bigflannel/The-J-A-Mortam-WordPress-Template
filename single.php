@@ -13,30 +13,6 @@
 
 <div id="content">
 	<?php if ( have_posts() ): ?>
-		<?php
-			if (has_post_format('gallery')) {		
-				// set up an array with srcs to the large images of all images in the post
-				$imageSRCsbyIDs = array();
-				$largeImageSRCsbyIDs = array();
-				$mediumImageSRCsbyIDs = array();
-				$args = array('post_type' => 'attachment', 'numberposts' => -1, 'post_status' =>'any', 'post_parent' => $post->ID); 
-				$attachments = get_posts($args);
-				if ($attachments) {
-					foreach ($attachments as $attachment) {
-						$largeImage_attributes = wp_get_attachment_image_src ($attachment->ID,'large');
-						$mediumImage_attributes = wp_get_attachment_image_src ($attachment->ID,'medium');
-						$largeImageSRCsbyIDs[$attachment->ID] = $largeImage_attributes[0];
-						$mediumImageSRCsbyIDs[$attachment->ID] = $mediumImage_attributes[0];
-					}
-				} ?>
-				<script type="text/javascript">
-					// pass the array of srcs to the large images of all images in the post to js
-					var largeImageSRCsbyIDs;
-					var mediumImageSRCsbyIDs;
-					largeImageSRCsbyIDs = <?php echo json_encode($largeImageSRCsbyIDs); ?>;
-					mediumImageSRCsbyIDs = <?php echo json_encode($mediumImageSRCsbyIDs); ?>;
-				</script>
-		<?php } ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h1><?php the_title(); ?></h1>
@@ -44,18 +20,29 @@
 				<div id="the-content" class="group">
 					<?php the_content(); ?>
 				</div>
+				
+				<?php if ( is_attachment() ) { ?>
+					<nav id="image-nav">
+						<div class="image-nav-thumb"><?php previous_image_link();?></div>
+						<div class="image-nav-thumb"><?php next_image_link(); ?></div>
+					</nav>
+				<?php } ?>
+				
 				<?php wp_link_pages(); ?> 
+				
 				<h3><?php the_tags( __('More stories about ','The J A Mortram'), ', ', '' ); ?></h3>
 				
 				<nav class="categories meta">
-					<?php 
-						$args = array(
-							'title_li' => __('','The J A Mortram'),
-							'exclude'  => '1',
-							'show_option_none'   => __('','The J A Mortram')
-						);
-						wp_list_categories($args);
-					?>
+					<ul>
+						<?php 
+							$args = array(
+								'title_li' => __('','The J A Mortram'),
+								'hide_empty' => 1,
+								'show_option_none'   => __('','The J A Mortram')
+							);
+							wp_list_categories($args);
+						?>
+					</ul>
 				</nav>
 				
 				<?php global $jam_options, $jam_settings;
@@ -63,11 +50,12 @@
 					<h3><?php _e('Share This Story','The J A Mortram'); ?></h3>
 					<nav class="categories">	
 						<ul>
-							<li><a href="http://twitter.com/share?text=<?php the_title(); ?>&url=<?php echo get_permalink(); ?>" target="_blank"><img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/twitter.png" /></a></li>
-							<li><a href="http://www.facebook.com/sharer.php?title=<?php the_title(); ?>&u=<?php echo get_permalink(); ?>">
-							<img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/facebook.png" /></a></li>
-							<li><a href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>">
-							<img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/gplus.png" /></a></li>
+							<li><a href="http://twitter.com/share?text=<?php echo urlencode(the_title_attribute('echo=0')); ?>&amp;url=<?php echo get_permalink(); ?>" target="_blank"><img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/twitter.png" alt="share on twitter" /></a>
+							</li>
+							<li><a href="http://www.facebook.com/sharer.php?title=<?php echo urlencode(the_title_attribute('echo=0')); ?>&amp;u=<?php echo get_permalink(); ?>"><img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/facebook.png" alt="share on Facebook" /></a>
+							</li>
+							<li><a href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>"><img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/gplus.png" alt="share on Google+" /></a>
+							</li>
 						</ul>
 					</nav>
 				<?php } ?>

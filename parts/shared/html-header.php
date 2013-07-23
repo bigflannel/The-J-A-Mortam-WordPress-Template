@@ -7,7 +7,7 @@
 	<head>
 	
 		<!-- meta -->
-		<title><?php wp_title('|',true,'right'); ?><?php bloginfo('name'); ?></title>
+		<title><?php wp_title('|', true, 'right'); ?></title>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	  	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
 		
 		<!-- wordpress -->
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-		<?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
+		
 		<?php wp_head(); ?>
 		
 	</head>

@@ -4,7 +4,7 @@ Theme URI: 		http://bigflannel.com/the-j-a-mortram
 Description: 	A simple, elegant one column template with a fullscreen image slideshow. Designed for photo stories.
 License:		GNU General Public License v2 or later
 License URI:	http://www.gnu.org/licenses/gpl-2.0.html
-Version: 		1.06
+Version: 		1.07
 Author: 		Mike Hartley
 Author URI: 	http://bigflannel.com
 Tags: 			one-column, flexible-width, light, photoblogging
@@ -37,6 +37,8 @@ body {
 	line-height: 1.4em;
 	background-color: #f8f8f8;
 	color: #666666;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 /* No underline and removes dotted line in Firefox, IE */
 a {
@@ -155,18 +157,23 @@ header h2 {
 	margin: 1em auto;
 	top: -1em;
 }
-.home img, .search img, .archive img {
+.home img,
+.search img,
+.archive img {
 	float: left;
 	max-width: 50%;
 	margin: 0 1em 1em 0;
 }
-#post-nav {
+#post-nav,
+#image-nav {
 	text-transform: uppercase;
 	text-align: center;
 	margin: 1em 0 0 0;
 }
 /* page / post / error / page / widget */
-.single #content h1, .error404 #content h1, .page #content h1 {
+.single #content h1,
+.error404 #content h1,
+.page #content h1 {
 	color: #333333;
 }
 .categories {
@@ -185,18 +192,25 @@ header h2 {
 	display: block;
 	margin: 1em auto;
 }
+.wp-caption {
+	max-width: 100%;
+}
 .wp-caption-text {
 	font-size: .875em;	
 }
 #the-content p {
 	position: relative;
 }
+.image-nav-thumb {
+	display: inline-block;
+	max-width: 2em;
+}
+/* fullscreen images */
 .fullscreen-rollover {
 	position: absolute;
 	top: 5px;
 	left: 5px;
 }
-/* fullscreen images */
 #image-for-fullscreen { 
 	display: none;
 	text-align: center;
@@ -228,12 +242,14 @@ header h2 {
 	width: 100%;
 	height: 48px;
 }
-#image-prev, #image-next {
+#image-prev,
+#image-next {
 	display: inline-block;
 	color: #000000;
 	cursor: pointer;
 }
-#image-prev:hover, #image-next:hover {
+#image-prev:hover,
+#image-next:hover {
 	display: inline-block;
 	color: #999999;
 }
@@ -283,13 +299,28 @@ a#cancel-comment-reply-link {
 	display: block;
 	font-size: .725em;
 }
+/* tables */
+th,
+td {
+	padding: .5em;
+	text-align: left;
+}
+/* lists */
+li li {
+	margin: 0 0 0 1em;
+}
+ol li {
+	margin: 0 0 0 1.5em;
+	list-style: decimal;
+}
 /* footer */
 footer {
 	text-align: center;
 	margin: 3em 0 0 0;
 	padding-bottom: 10em;
 }
-#donate, #site {
+#donate,
+#site {
 	text-transform: uppercase;
 	text-align: center;
 	margin: 1em 0 0 0;
@@ -312,11 +343,15 @@ nav li:last-child {
 
 /* 400 and up */
 @media screen and (max-width:45.75em) {
-	body.home p, body.search p, body.archive p {
+	body.home p,
+	body.search p,
+	body.archive p {
 		max-width: 28.125em;
 		margin: 0 auto;
 	}
-	.home img, .search img, .archive img {
+	.home img,
+	.search img,
+	.archive img {
 		float: none;
 		max-width: 100%;
 		margin: 1em auto;
@@ -324,7 +359,6 @@ nav li:last-child {
 }
 /* Retina Display */
 @media screen and (-webkit-min-device-pixel-ratio:2) {
-	{ /* Place your styles here for all 'Retina' screens */ }
 }
 
 
@@ -332,6 +366,8 @@ nav li:last-child {
 05 additional wordpress css you might use -------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------- */
 
-.sticky, .gallery-caption, .bypostauthor {
+.sticky,
+.gallery-caption,
+.bypostauthor {
 }
 

@@ -20,7 +20,9 @@
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<h1><?php the_title(); ?></h1>
-			<?php the_content(); ?>
+			<div id="the-content" class="group">
+				<?php the_content(); ?>
+			</div>
 			<?php comments_template( '', true ); ?>
 		</article>
 	<?php endwhile; ?>

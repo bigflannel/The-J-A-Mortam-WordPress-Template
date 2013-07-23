@@ -30,6 +30,10 @@ Thumbnail 1200 x 300
 Medium 2400 x 600
 Large 4800 x 1200
 
+### Posts
+
+The inspiration for this theme is the work of J A Mortram. It is designed to encourage readers to go through a story and then read on about that subject or return to the main index of stories. The single post page does not have next and previous post navigation, instead it features tags as navigation at the end of the post. Single post or photo story subjects are best grouped in the theme using a post's tags.
+
 ### Post Format : Gallery
 
 Use this format to activate fullscreen image display on a post (in those browsers that support it). All images in the post must be uploaded through the post, if you want to use an image in two posts with format gallery, you must upload the image twice.
@@ -51,6 +55,25 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 Set whether too add Twitter, Facebook and Google+ share buttons at the end of a post.
 
 # Changelog
+
+### 1.07
+
+July 22nd, 2013.
+
+Remaining Google Analytics options code removed from functions.php.
+Amended header.php to set page title meta tag using wp_title filter and a function in functions.php.
+Comment-reply script now enqueued in functions.php.
+PHP code and Javascript used in single.php to pass data to javascript moved and functionality added using action loop_start in functions.php
+Clear float styling added to the_content in page.php.
+Captioned images styled to not overflow their containers.
+Added style rules to table, th and td elements.
+Added style rules to nest unordered lists and nest and number ordered lists.
+Non-breaking text styled so does not overflow the container.
+Next and previous image navigation added to attachment page.
+home_url() replaced with esc_url(home_url('/')) throughout theme.
+CSS edited to conform with WordPress Theme Development CSS best practices.
+Amended code for sharing in single page so validates.
+Amended readme.md to better describe template use. Discusses post navigation by tag and setting post subjects as tags.
 
 ### 1.06
 
