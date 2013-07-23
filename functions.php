@@ -231,9 +231,6 @@
 	            	<?php settings_fields( 'jam_theme_options' ); ?>
 	            	<?php if (!isset($settings['copyright_statement_footer'])) {
 	            		$settings['copyright_statement_footer'] = '';
-	            	}
-	            	if (!isset($settings['show_social_media_share'])) {
-	            		$settings['show_social_media_share'] = false;
 	            	} ?>
 					<table class="form-table">
 						<tr valign="top">
@@ -242,14 +239,6 @@
 							</th>
 							<td>
 								<input id="copyright_statement_footer" name="jam_options[copyright_statement_footer]" type="text" value="<?php  esc_attr_e($settings['copyright_statement_footer']); ?>" />
-							</td>
-						</tr>
-						<tr valign="top">
-							<th scope="row">
-								<label for="show_social_media_share"><?php _e('Add "Share This Story" to Posts','The J A Mortram'); ?></label>
-							</th>
-							<td>
-								<input id="show_social_media_share" name="jam_options[show_social_media_share]" type="checkbox" value="true" <?php if ($settings['show_social_media_share']) { ?>checked<?php } ?>>
 							</td>
 						</tr>
 	                </table>

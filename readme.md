@@ -56,6 +56,12 @@ Set whether too add Twitter, Facebook and Google+ share buttons at the end of a 
 
 # Changelog
 
+### 1.08
+
+July 23rd, 2013.
+
+'Share this story' removed from theme options.
+
 ### 1.07
 
 July 22nd, 2013.
@@ -74,7 +80,6 @@ home_url() replaced with esc_url(home_url('/')) throughout theme.
 CSS edited to conform with WordPress Theme Development CSS best practices.
 Amended code for sharing in single page so validates.
 Amended readme.md to better describe template use. Discusses post navigation by tag and setting post subjects as tags.
-
 
 ### 1.06
 

@@ -45,21 +45,6 @@
 					</ul>
 				</nav>
 				
-				<?php global $jam_options, $jam_settings;
-				if (isset($jam_settings['show_social_media_share'])) { ?>
-					<h3><?php _e('Share This Story','The J A Mortram'); ?></h3>
-					<nav class="categories">	
-						<ul>
-							<li><a href="http://twitter.com/share?text=<?php echo urlencode(the_title_attribute('echo=0')); ?>&amp;url=<?php echo get_permalink(); ?>" target="_blank"><img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/twitter.png" alt="share on twitter" /></a>
-							</li>
-							<li><a href="http://www.facebook.com/sharer.php?title=<?php echo urlencode(the_title_attribute('echo=0')); ?>&amp;u=<?php echo get_permalink(); ?>"><img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/facebook.png" alt="share on Facebook" /></a>
-							</li>
-							<li><a href="https://plus.google.com/share?url=<?php echo get_permalink(); ?>"><img class="social-share" src="<?php echo get_stylesheet_directory_uri(); ?>/img/gplus.png" alt="share on Google+" /></a>
-							</li>
-						</ul>
-					</nav>
-				<?php } ?>
-				
 				<?php comments_template( '', true ); ?>
 			</article>
 		<?php endwhile; ?>
