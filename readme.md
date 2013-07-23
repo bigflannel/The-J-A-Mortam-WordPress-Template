@@ -75,6 +75,7 @@ CSS edited to conform with WordPress Theme Development CSS best practices.
 Amended code for sharing in single page so validates.
 Amended readme.md to better describe template use. Discusses post navigation by tag and setting post subjects as tags.
 
+
 ### 1.06
 
 July 8, 2013.
