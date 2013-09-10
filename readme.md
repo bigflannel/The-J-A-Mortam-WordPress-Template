@@ -12,7 +12,7 @@ http://smalltowninertia.co.uk
 
 ### For more information, please visit:
 
-http://bigflannel.com/the-j-a-mortram
+http://bigflannel.com/2013/07/the-j-a-mortram-wordpress-theme/
 
 Copyright (c) 2013 bigflannel, Mike Hartley, Jim Mortram
 
@@ -51,6 +51,12 @@ The default widget in the footer is search, widgets you add will replace it and 
 Set the text displayed after the footer copyright text (© 2013) using theme settings and 'Copyright Statement for Footer'.
 
 # Changelog
+
+### 1.10
+
+September 9th, 2013.
+
+* Amended readme.md.
 
 ### 1.09
 
