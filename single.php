@@ -16,7 +16,7 @@
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<h1><?php the_title(); ?></h1>
-				<div class="meta post-meta"><time datetime="<?php the_time( __('Y-m-d','The J A Mortram') ); ?>" ><?php the_date(); ?></time>, <?php comments_popup_link(__('Leave a Comment','The J A Mortram'), __('1 Comment','The J A Mortram'), __('% Comments','The J A Mortram'), '', ''); ?></div>
+				<div class="meta post-meta"><time datetime="<?php the_time( __('Y-m-d','The J A Mortram') ); ?>" ><?php the_date(); ?></time> <?php comments_popup_link(__('Leave a Comment','The J A Mortram'), __('1 Comment','The J A Mortram'), __('% Comments','The J A Mortram'), '', ''); ?></div>
 				<div id="the-content" class="group">
 					<?php the_content(); ?>
 				</div>
@@ -32,7 +32,7 @@
 				
 				<h3><?php the_tags( __('More stories about ','The J A Mortram'), ', ', '' ); ?></h3>
 				
-				<nav class="categories meta">
+				<nav id="nav-categories" class="meta group">
 					<ul>
 						<?php 
 							$args = array(

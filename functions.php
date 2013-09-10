@@ -27,8 +27,9 @@
 		add_theme_support('automatic-feed-links');
 		add_theme_support('post-formats', array('gallery'));
 		register_nav_menus(array(
-			'site' => __('Site Navigation','The J A Mortram'),
-			'donate' => __('Donate','The J A Mortram')
+			'header' => __('Header','The J A Mortram'),
+			'donate' => __('Donate','The J A Mortram'),
+			'footer' => __('Footer','The J A Mortram'),
 		));
 	}
 	
@@ -106,9 +107,9 @@
 		}
 	
 	add_action( 'widgets_init', 'jam_register_sidebar' );
-	
+		 
 	/**
-	 * write data for fullscreen slideshow as js for post format gallery
+	 * echo data for fullscreen slideshow as js for post format gallery
 	 *
 	 */
 
@@ -118,7 +119,12 @@
 				$imageSRCsbyIDs = array();
 				$largeImageSRCsbyIDs = array();
 				$mediumImageSRCsbyIDs = array();
-				$args = array('post_type' => 'attachment', 'numberposts' => -1, 'post_status' =>'any', 'post_parent' => get_the_ID());
+				$args = array(
+					'post_type' => 'attachment',
+					'numberposts' => -1,
+					'post_status' =>'any',
+					'post_parent' => get_the_ID()
+				);
 				$attachments = get_posts($args);
 				if ($attachments) {
 					foreach ($attachments as $attachment) {
@@ -154,9 +160,15 @@
 	add_filter( 'get_search_form', 'jam_search_form' );
 	
 	/**
-	 * customize protected excerpt
+	 * customize excerpt
 	 *
 	 */
+	
+	function jam_excerpt_link( $more ) {
+		return ' <a href="'. get_permalink( get_the_ID() ) . '">[...]</a>';
+	}
+	
+	add_filter( 'excerpt_more', 'jam_excerpt_link' );
 	
 	function jam_excerpt_protected( $excerpt ) {
 	    if ( post_password_required() )
@@ -172,6 +184,7 @@
 	 * @return void
 	 * @author Keir Whitaker
 	 */
+	 
 	function starkers_comment( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment; 
 		?>
