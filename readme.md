@@ -52,6 +52,12 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.11
+
+September 9th, 2013.
+
+* Amended version in styles.css.
+
 ### 1.10
 
 September 9th, 2013.
