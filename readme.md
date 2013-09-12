@@ -52,6 +52,14 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.12
+
+September 11th, 2013.
+
+* Removed readme.md from the WordPress upload.
+
+# Changelog
+
 ### 1.11
 
 September 9th, 2013.
