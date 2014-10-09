@@ -52,13 +52,22 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.13
+
+October 9th, 2014.
+
+* Added option for image as header. See 'Appearance/Header'.
+* Added readme.md as .txt to WordPress upload.
+* Updated theme home page.
+* Updated screenshot.png to be 880px by 660px.
+* Removed <?php screen_icon('themes'); ?> from functions.php as deprecated.
+* Amended theme description to use fluid-layout and responsive-layout tags rather than flexible-layout.
+
 ### 1.12
 
 September 11th, 2013.
 
 * Removed readme.md from the WordPress upload.
-
-# Changelog
 
 ### 1.11
 

@@ -26,6 +26,18 @@
 		add_theme_support('post-thumbnails');
 		add_theme_support('automatic-feed-links');
 		add_theme_support('post-formats', array('gallery'));
+		$customHeaderDefaults = array(
+			'default-image'          => '',
+			'random-default'         => false,
+			'width'                  => 0,
+			'height'                 => 0,
+			'flex-height'            => true,
+			'flex-width'             => true,
+			'default-text-color'     => '#000000',
+			'header-text'            => true,
+			'uploads'                => true,
+		);
+		add_theme_support( 'custom-header', $customHeaderDefaults );
 		register_nav_menus(array(
 			'header' => __('Header','The J A Mortram'),
 			'donate' => __('Donate','The J A Mortram'),
@@ -52,6 +64,7 @@
 			wp_enqueue_script( 'fullscreen' );
 			wp_register_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 			wp_enqueue_script( 'site' );
+			/* used to pass data to javascript direct, used in addFullscreenIcon */
 			$data = array('stylesheet_directory_uri' => __(get_stylesheet_directory_uri()));
 			wp_localize_script('site', 'jam_data', $data);
 		}
@@ -235,7 +248,7 @@
 				$_REQUEST['settings-updated'] = false;
 			} ?>
 	        <div class="wrap">
-	            <?php screen_icon('themes'); ?> <h2>The J A Mortram Settings</h2>
+	            <h2>The J A Mortram Settings</h2>
 	            <?php if ( false !== $_REQUEST['settings-updated'] ) { ?>
 	            	<div class="updated fade"><p><?php _e('Settings saved','The J A Mortram'); ?></p></div>
 	            <?php } ?>
