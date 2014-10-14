@@ -14,3 +14,6 @@
 			</nav>
 		</div>
 	<?php } ?>
+	<?php if (is_active_sidebar('header-sidebar' )) { ?>
+		<?php dynamic_sidebar( 'header-sidebar' ); ?><br />
+	<?php } ?>

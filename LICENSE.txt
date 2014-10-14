@@ -7,6 +7,7 @@ This program is free software; you can redistribute it and/or modify it under th
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
+
 Used in the development of The J A Mortram Wordpress Theme
 
 2) Starkers
@@ -32,5 +33,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 html5shiv MIT @rem remysharp.com/html5-enabling-script
 iepp v1.5.1 MIT @jon_neal iecss.com/print-protector
+
+
+The J A Mortram WordPress theme screenshot
+
+1) Image contained within Copyright (c) J A Mortram
+http://jamortram.co.uk/blog/
+
+This image is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License
+http://creativecommons.org/licenses/by-sa/4.0/
 
 

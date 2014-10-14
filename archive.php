@@ -19,28 +19,28 @@
 <div id="content">
 	<?php if ( have_posts() ): ?>
 	<?php if (is_tag()) { ?>
-		<h1><?php _e('Stories about','The J A Mortram'); ?> <?php echo single_tag_title( '', false ); ?></h1>	
+		<h1><?php _e('Stories about','the-j-a-mortram'); ?> <?php echo single_tag_title( '', false ); ?></h1>	
 	<?php  } ?>	
 	<?php if (is_category()) { ?>
-		<h1><?php _e('Category Archive','The J A Mortram'); ?> <?php echo single_cat_title( '', false ); ?></h1>
+		<h1><?php _e('Category Archive','the-j-a-mortram'); ?> <?php echo single_cat_title( '', false ); ?></h1>
 	<?php  } ?>
 	<?php if ( is_day() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( __('D M Y','The J A Mortram') ); ?></h1>							
+	<h1>Archive: <?php echo  get_the_date( __('D M Y','the-j-a-mortram') ); ?></h1>							
 	<?php elseif ( is_month() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( __('M Y','The J A Mortram') ); ?></h1>	
+	<h1>Archive: <?php echo  get_the_date( __('M Y','the-j-a-mortram') ); ?></h1>	
 	<?php elseif ( is_year() ) : ?>
-	<h1>Archive: <?php echo  get_the_date( __('Y','The J A Mortram') ); ?></h1>								
+	<h1>Archive: <?php echo  get_the_date( __('Y','the-j-a-mortram') ); ?></h1>								
 	<?php endif; ?>
 	<ul class="group">
 	<?php while ( have_posts() ) : the_post(); ?>
 		<li class="group">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if (get_the_title() == '') { ?>
-					<div class="meta post-meta"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><time datetime="<?php the_time( __('Y-m-d','The J A Mortram') ); ?>"><?php the_date(); ?></time></a> <?php comments_popup_link(__('Leave a Comment','The J A Mortram'), __('1 Comment','The J A Mortram'), __('% Comments','The J A Mortram'), '', ''); ?>
+					<div class="meta post-meta"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><time><?php the_date(); ?></time></a> <?php comments_popup_link(__('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', ''); ?>
 					</div>
 				<?php } else { ?>
 					<h1><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-					<div class="meta post-meta"><time datetime="<?php the_time( __('Y-m-d','The J A Mortram') ); ?>"><?php the_date(); ?></time> <?php comments_popup_link(__('Leave a Comment','The J A Mortram'), __('1 Comment','The J A Mortram'), __('% Comments','The J A Mortram'), '', ''); ?>
+					<div class="meta post-meta"><time><?php the_date(); ?></time> <?php comments_popup_link(__('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', ''); ?>
 					</div>
 				<?php } ?>
 				<?php if ( has_post_thumbnail() ) { ?>
@@ -52,12 +52,12 @@
 	<?php endwhile; ?>
 	</ul>
 	<nav id="post-nav">
-		<?php echo get_previous_posts_link( __('More','The J A Mortram') ); ?> 
+		<?php echo get_previous_posts_link( __('More','the-j-a-mortram') ); ?> 
 		<?php if (get_previous_posts_link() && get_next_posts_link()) { echo ' | '; } ?>
-		<?php echo get_next_posts_link( __('Prev','The J A Mortram' ) ); ?>
+		<?php echo get_next_posts_link( __('Prev','the-j-a-mortram' ) ); ?>
 	</nav>
 	<?php else: ?>
-		<h2><?php _e('No posts to display','The J A Mortram'); ?></h2>
+		<h2><?php _e('No posts to display','the-j-a-mortram'); ?></h2>
 	<?php endif; ?>
 	</div><!-- #content -->
 

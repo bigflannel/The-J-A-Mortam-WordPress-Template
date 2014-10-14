@@ -52,6 +52,18 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.14
+
+October 11th, 2014.
+
+* Amended all functions in functions.php to have same prefix (jam).
+* Amended functions.php so all scripts added using wp_enqueue_script without using wp_register_script beforehand.
+* Amended how Open Sans font is loaded from Google in functions.php (http://themeshaper.com/2014/08/13/how-to-add-google-fonts-to-wordpress-themes/).
+* Amended the text-domain to be in the format the-j-a-mortram and not The J A Mortram.
+* Added a header widget option between the header navigation and the start of page content.
+* Removed datetime meta data from time tags.
+* Updated screenshot with a creative commons licensed image.
+
 ### 1.13
 
 October 9th, 2014.

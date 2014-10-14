@@ -12,7 +12,7 @@
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
 <div id="content">
-	<h1><?php _e('Page not found','The J A Mortram'); ?></h1>
+	<h1><?php _e('Page not found','the-j-a-mortram'); ?></h1>
 </div><!-- #content -->
 
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

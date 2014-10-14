@@ -4,7 +4,7 @@
  *
  * The area of the page that contains both current comments
  * and the comment form. The actual display of comments is
- * handled by a callback to starkers_comment() which is
+ * handled by a callback to jam_comment() which is
  * located in the functions.php file.
  *
  * @package 	WordPress
@@ -14,7 +14,7 @@
 ?>
 <div id="comments">
 	<?php if ( post_password_required() ) : ?>
-	<p><?php _e('This post is password protected. Enter the password to view any comments','The J A Mortram'); ?></p>
+	<p><?php _e('This post is password protected. Enter the password to view any comments','the-j-a-mortram'); ?></p>
 </div><!-- #comments -->
 	<?php 
 		return;
@@ -23,13 +23,13 @@
 	<?php if ( have_comments() ) : ?>
 		<h3><?php comments_number(); ?></h3>
 		<ul>
-			<?php wp_list_comments( array( 'callback' => 'starkers_comment' ) ); ?>
+			<?php wp_list_comments( array( 'callback' => 'jam_comment' ) ); ?>
 		</ul>
 		<?php paginate_comments_links(); ?> 
 	<?php endif; ?>	
 	<?php $comments_args = array(
 	        // change the title of the reply section
-	        'title_reply'=>__('Leave a Comment','The J A Mortram'),
+	        'title_reply'=>__('Leave a Comment','the-j-a-mortram'),
 	        // remove "Text or HTML to be displayed after the set of comment fields"
 	        'comment_notes_after' => '',
 	        // redefine your own textarea (the comment body)
