@@ -91,10 +91,10 @@ var addImageClickHandler = function () {
 		jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','inline');
 		setFullscreenNav();
 		jQuery('#image-for-fullscreen').css('display','block');
-		jQuery(document).bind("fullscreenerror", function() {
-		    removeImageClickHandler();
+		jQuery('#image-for-fullscreen')[0].addEventListener(screenfull.raw.fullscreenerror, function() {
+			removeImageClickHandler();
 		});
-		jQuery('#image-for-fullscreen').fullScreen(true);
+		screenfull.request(jQuery('#image-for-fullscreen')[0]);
 	});
 }
 
@@ -122,17 +122,15 @@ var setFullscreenNav = function () {
 }
 
 var addExitFullscreen = function () {
-	// hide images when drop back from fullscreen
-	jQuery(document).bind("fullscreenchange", function() {
-	    if (jQuery(document).fullScreen()) {
-	    	// listen for key presses
-	    	jQuery(document).keyup(fullscreenKeyPress);
-	    }
-	    if (jQuery(document).fullScreen() == false) {
-	    	jQuery(document).unbind("keyup", fullscreenKeyPress);
-	    	jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','none');
-	    	jQuery('#image-for-fullscreen').css('display','none');
-	    }
+	jQuery('#image-for-fullscreen')[0].addEventListener(screenfull.raw.fullscreenchange, function() {
+		if (screenfull.isFullscreen) {
+			jQuery(document).keyup(fullscreenKeyPress);
+		}
+		if (!screenfull.isFullscreen) {
+			jQuery(document).unbind("keyup", fullscreenKeyPress);
+			jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','none');
+			jQuery('#image-for-fullscreen').css('display','none');
+		}
 	});
 }
 
@@ -188,7 +186,7 @@ var addFullscreenIcon = function () {
 }
 
 var singleConstructor = function() {
-	if (jQuery(document).fullScreen() != null) {
+	if (screenfull.enabled) {
 		// get an array of images in the content of the page by ID by order on page
 		getImagesByID();
 		// add fullscreen images to the page

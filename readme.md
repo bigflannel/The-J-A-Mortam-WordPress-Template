@@ -52,6 +52,20 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.16
+
+February 18, 2015.
+
+* Replaced jQuery Fullscreen with screenfull.js (see LICENSE.txt) to improve performance of fullscreen slideshow (was failing in Safari 8.0x).
+* Added description meta tag (uses blog tagline) to home page (only).
+* Maintained time in pages throughout site but deleted the <time> tag applied to them.
+
+### 1.15
+
+January 14, 2015.
+
+* Added a Tagline widget that is displayed below the header image and above the header display text. Useful for adding a text based tagline below a custom header image.
+
 ### 1.14
 
 October 11th, 2014.

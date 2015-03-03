@@ -84,7 +84,7 @@
 			wp_enqueue_script( 'comment-reply' );
 		}
 		if ( is_single() ) {
-			wp_enqueue_script( 'fullscreen', get_template_directory_uri().'/js/jquery.fullscreen-min.js', array( 'jquery' ) );
+			wp_enqueue_script( 'fullscreen', get_template_directory_uri().'/js/screenfull.min.js', array( 'jquery' ) );
 			wp_enqueue_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 			/* used to pass data to javascript direct, used in addFullscreenIcon */
 			$data = array('stylesheet_directory_uri' => __(get_stylesheet_directory_uri()));
@@ -131,6 +131,13 @@
 	 */
 	 
 	 function jam_register_sidebar() {
+			register_sidebar(array(
+				'name' => __('Tagline','the-j-a-mortram'),
+				'id' => 'tagline-sidebar',
+				'description' => __('Widgets in this area will be shown in the header above the header text and below the header image.','the-j-a-mortram'),
+				'before_title' => '<h3>',
+				'after_title' => '</h3>'
+			));
 			register_sidebar(array(
 				'name' => __('Header','the-j-a-mortram'),
 				'id' => 'header-sidebar',
@@ -236,7 +243,7 @@
 				<?php endif; ?>
 				<?php echo get_avatar( $comment ); ?>
 				<h4><?php comment_author_link() ?></h4>
-				<time datetime="<?php comment_date(__('Y-m-d','the-j-a-mortram')); ?> <?php comment_time(__('h:i','the-j-a-mortram')); ?>" class="meta"><a href="#comment-<?php comment_ID() ?>"><?php comment_date() ?> <?php _e('at','the-j-a-mortram'); ?> <?php comment_time() ?></a></time> <span class="meta"><?php comment_reply_link( array_merge( $args, array( 'reply_text' => __('&rarr; Reply','the-j-a-mortram'), 'after' => '', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></span>
+				<a href="#comment-<?php comment_ID() ?>"><?php comment_date() ?> <?php _e('at','the-j-a-mortram'); ?> <?php comment_time() ?></a> <span class="meta"><?php comment_reply_link( array_merge( $args, array( 'reply_text' => __('&rarr; Reply','the-j-a-mortram'), 'after' => '', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?></span>
 				<?php comment_text() ?>
 			</article>
 		<?php 

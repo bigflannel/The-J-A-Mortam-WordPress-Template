@@ -22,10 +22,10 @@
 		<li class="group">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if (get_the_title() == '') { ?>
-					<div class="meta post-meta"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><time><?php the_date(); ?></time></a> <?php comments_popup_link( __('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', '' ); ?></div>
+					<div class="meta post-meta"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_date(); ?></a> <?php comments_popup_link( __('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', '' ); ?></div>
 				<?php } else { ?>
 					<h1><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
-					<div class="meta post-meta"><time><?php the_date(); ?></time> <?php comments_popup_link( __('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram' ), '', ''); ?></div>
+					<div class="meta post-meta"><?php the_date(); ?> <?php comments_popup_link( __('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram' ), '', ''); ?></div>
 				<?php } ?>
 				<?php if ( has_post_thumbnail() ) { ?>
 					<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_post_thumbnail('thumbnail'); ?></a>
