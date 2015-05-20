@@ -52,6 +52,13 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.17
+
+May 20, 2015.
+
+* Added new CSS to ensure fullscreen slideshow background is the correct color in IE on windows.
+* Made all functions pluggable.
+
 ### 1.16
 
 February 18, 2015.
