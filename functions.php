@@ -39,6 +39,7 @@
 				'uploads'                => true,
 			);
 			add_theme_support( 'custom-header', $customHeaderDefaults );
+			load_theme_textdomain('the-j-a-mortram');
 			register_nav_menus(array(
 				'header' => __('Header','the-j-a-mortram'),
 				'donate' => __('Donate','the-j-a-mortram'),
@@ -61,7 +62,7 @@
 		    * supported by Open Sans, translate this to 'off'. Do not translate
 		    * into your own language.
 		    */
-		    $open_sans = _x( 'on', 'Open Sans font: on or off', 'theme-slug' );
+		    $open_sans = _x( 'on', 'Open Sans font: on or off', 'the-j-a-mortram' );
 		    if ( 'off' !== $open_sans ) {
 		        $font_families = array();
 		        if ( 'off' !== $open_sans ) {
@@ -92,7 +93,7 @@
 				wp_enqueue_script( 'fullscreen', get_template_directory_uri().'/js/screenfull.min.js', array( 'jquery' ) );
 				wp_enqueue_script( 'site', get_template_directory_uri().'/js/site.js', array( 'jquery' ) );
 				/* used to pass data to javascript direct, used in addFullscreenIcon */
-				$data = array('stylesheet_directory_uri' => __(get_stylesheet_directory_uri()));
+				$data = array('stylesheet_directory_uri' => get_stylesheet_directory_uri());
 				wp_localize_script('site', 'jam_data', $data);
 			}
 	        wp_enqueue_style( 'screen', get_stylesheet_directory_uri().'/style.css' );
@@ -326,7 +327,7 @@
 									<label for="copyright_statement_footer"><?php _e('Copyright statement for footer','the-j-a-mortram'); ?></label>
 								</th>
 								<td>
-									<input id="copyright_statement_footer" name="jam_options[copyright_statement_footer]" type="text" value="<?php  esc_attr_e($settings['copyright_statement_footer']); ?>" />
+									<input id="copyright_statement_footer" name="jam_options[copyright_statement_footer]" type="text" value="<?php  echo esc_attr($settings['copyright_statement_footer']); ?>" />
 								</td>
 							</tr>
 		                </table>

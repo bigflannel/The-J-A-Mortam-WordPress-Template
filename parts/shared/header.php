@@ -1,6 +1,6 @@
 	<header>
 		<?php if (get_header_image() != '') { ?>
-			<img src="<?php echo(get_header_image()); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+			<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo(get_header_image()); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="<?php bloginfo( 'name' ); ?>" /></a>
 		<?php } ?>
 		<?php if (is_active_sidebar('tagline-sidebar' )) { ?>
 			<?php dynamic_sidebar( 'tagline-sidebar' ); ?>
