@@ -122,6 +122,8 @@
 				'name' => __('Tagline','the-j-a-mortram'),
 				'id' => 'tagline-sidebar',
 				'description' => __('Widgets in this area will be shown in the header above the header text and below the header image.','the-j-a-mortram'),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
 				'before_title' => '<h3>',
 				'after_title' => '</h3>'
 			));
@@ -129,6 +131,8 @@
 				'name' => __('Header','the-j-a-mortram'),
 				'id' => 'header-sidebar',
 				'description' => __('Widgets in this area will be shown in the header below the navigation.','the-j-a-mortram'),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
 				'before_title' => '<h3>',
 				'after_title' => '</h3>'
 			));
@@ -136,6 +140,8 @@
 				'name' => __('Footer','the-j-a-mortram'),
 				'id' => 'footer-sidebar',
 				'description' => __('Widgets in this area will be shown in the footer below any navigation and above the copyright statement.','the-j-a-mortram'),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
 				'before_title' => '<h3>',
 				'after_title' => '</h3>'
 			));

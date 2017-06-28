@@ -52,6 +52,19 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.20
+
+June 25, 2017
+
+* removed readme.md
+* added notes document: #work #bigflannel #thejamortram.txt
+* added grunt for development
+* added a div wrapper to template widgets
+* added margin-top 1em to template widgets
+* added selectors to archive title: .archive-title and .the-j-a-mortram-descriptor and some spacing
+* added post-date and post-comments to post info below post title on index, archive, search, single templates
+* added alt tags to index, archive, search thumbnails
+
 ### 1.19
 
 March 4, 2017

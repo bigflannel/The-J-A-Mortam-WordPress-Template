@@ -15,8 +15,9 @@
 	<?php if ( have_posts() ): ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				
 				<h1><?php the_title(); ?></h1>
-				<div class="meta post-meta"><?php the_date(); ?> <?php comments_popup_link(__('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', ''); ?></div>
+				<div class="meta post-meta"><span class="post-date"><?php the_date(); ?> </span><span class="post-comments"><?php comments_popup_link(__('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', ''); ?></span></div>
 				<div id="the-content" class="group">
 					<?php the_content(); ?>
 				</div>

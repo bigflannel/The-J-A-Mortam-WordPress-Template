@@ -4,7 +4,7 @@ Theme URI: 		http://bigflannel.com/2013/07/the-j-a-mortram-wordpress-theme/
 Description: 	A simple, elegant one column template with a fullscreen image slideshow. Designed for photo stories.
 License:		GNU General Public License v2
 License URI:	http://www.gnu.org/licenses/gpl-2.0.html
-Version: 		1.19
+Version: 		1.20
 Author: 		Mike Hartley
 Author URI: 	http://bigflannel.com
 Tags: 			one-column, custom-header, custom-menu, footer-widgets, featured-images, post-formats, theme-options, threaded-comments, translation-ready, blog, photography
@@ -13,7 +13,7 @@ Text Domain:	the-j-a-mortram
 
 
 /* ---------------------------------------------------------------------------------------------------------- 
-01 defaults ----------------------------------------------------------------------------------------
+01 defaults
 ---------------------------------------------------------------------------------------------------------- */
 
 @import "css/reset.css";
@@ -84,7 +84,7 @@ blockquote {
 
 
 /* ---------------------------------------------------------------------------------------------------------- 
-02 typography -----------------------------------------------------------------------------------------------
+02 typography
 ---------------------------------------------------------------------------------------------------------- */
 
 /*
@@ -129,7 +129,7 @@ h6 {
 
 
 /* ---------------------------------------------------------------------------------------------------------- 
-03 Site styles ----------------------------------------------------------------------------------------------
+03 Site styles
 ---------------------------------------------------------------------------------------------------------- */
 
 body {
@@ -188,7 +188,13 @@ header img,
 	margin: 0 auto;
 	margin-top: 2em;
 }
+.archive-title {
+	margin: 1em auto 2em auto;
+}
 /* page / post / error / page / widget */
+div.widget {
+	margin: 1em 0 0 0;
+}
 .single #content h1,
 .error404 #content h1,
 .page #content h1 {
@@ -350,7 +356,7 @@ ol li {
 
 
 /* ---------------------------------------------------------------------------------------------------------- 
-04 media queries (using a mobile-first approach) ------------------------------------------------------------
+04 media queries
 ---------------------------------------------------------------------------------------------------------- */
 
 /* 400 and up */
@@ -375,7 +381,7 @@ ol li {
 
 
 /* ---------------------------------------------------------------------------------------------------------- 
-05 additional wordpress css you might use -------------------------------------------------------------------
+05 additional wordpress css you might use
 ---------------------------------------------------------------------------------------------------------- */
 
 .sticky,

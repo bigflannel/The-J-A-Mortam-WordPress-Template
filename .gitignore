@@ -1,9 +1,6 @@
 # PROJECT
 
-
-
 # OS X
-
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -15,3 +12,11 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+# bigflannel development
+.sass-cache
+node_modules
+*.esproj
+*#work #bigflannel #thejamortram.txt
+Gruntfile.js
+package.json
