@@ -52,6 +52,19 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.19
+
+March 4, 2017
+
+* amended theme tags and removed deprecated tags
+* added support for add_theme_support('title-tag') and removed title tag and wp_title from html-header.php and jam_meta_title_tag on the wp_title filter
+* added support for add_editor_style to functions.php on the admin_init action
+* updated html5.js to html5shiv.js version 3.7.3
+* updapted screenfull.js to version 3.0
+* php7 compatible - PHP Compatibility Checker plugin, tested on server with php 7.0.12
+* encapsulated the theme js in site.js
+* only committed to GIT locally and GitHub 6.28.2017
+
 ### 1.18
 
 * Ensured all text domains are the same and are the same as the theme folder

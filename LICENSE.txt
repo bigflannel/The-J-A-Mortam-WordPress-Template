@@ -31,10 +31,12 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-4) html5.js
+4) html5shiv.js
+https://github.com/aFarkas/html5shiv/
 
-html5shiv MIT @rem remysharp.com/html5-enabling-script
-iepp v1.5.1 MIT @jon_neal iecss.com/print-protector
+HTML5 Shiv 3.7.3
+@afarkas @jdalton @jon_neal @rem
+MIT/GPL2 Licensed
 
 
 The J A Mortram WordPress theme screenshot

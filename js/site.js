@@ -6,114 +6,117 @@
  (See http://www.gnu.org/licenses/gpl-2.0.html)
 */
 
-var imagesOnPage;
-var imageOrderOnPageByID = new Array();
-var screenWidth;
-var screenHeight;
-var devicePixelRatio;
-var imageSRCsbyIDs;
-var addHTML;
-var classList;
-var classSplit;
-var imageID;
-var imageOrder;
+var jam = {};
+
+jam.imagesOnPage;
+jam.imageOrderOnPageByID = new Array();
+jam.screenWidth;
+jam.screenHeight;
+jam.devicePixelRatio;
+jam.imageSRCsbyIDs;
+jam.addHTML;
+jam.classList;
+jam.classSplit;
+jam.imageID;
+jam.imageOrder;
 var i;
 var j;
 
-var getImagesByID = function() {
-	imagesOnPage = jQuery('#the-content img');
-	for (i = 0; i < imagesOnPage.length; i++) {
-		// calculate the imageID
-		classList = imagesOnPage[i].className.split(/\s+/);
-		for (j = 0; j < classList.length; j++) {
-			if (classList[j].indexOf('wp-image-')==0) {
-				classSplit = classList[j].split('-');
-				imageOrderOnPageByID.push(classSplit[2]);
+jam.getImagesByID = function() {
+	jam.imagesOnPage = jQuery('#the-content img');
+	for (i = 0; i < jam.imagesOnPage.length; i++) {
+		// calculate the jam.imageID
+		jam.classList = jam.imagesOnPage[i].className.split(/\s+/);
+		for (j = 0; j < jam.classList.length; j++) {
+			if (jam.classList[j].indexOf('wp-image-')==0) {
+				jam.classSplit = jam.classList[j].split('-');
+				jam.imageOrderOnPageByID.push(jam.classSplit[2]);
 			}
 		}
 	}
 }
 
-var addFullscreenImages = function () {
-	screenWidth = screen.width;
-	screenHeight = screen.height;
-	if (screenWidth > screenHeight) {
-		maxScreenDimension = screenWidth;
+jam.addFullscreenImages = function () {
+	jam.screenWidth = screen.width;
+	jam.screenHeight = screen.height;
+	var maxScreenDimension;
+	if (jam.screenWidth > jam.screenHeight) {
+		maxScreenDimension = jam.screenWidth;
 	} else {
-		maxScreenDimension = screenHeight;
+		maxScreenDimension = jam.screenHeight;
 	}
-	devicePixelRatio = window.devicePixelRatio;
-	if (devicePixelRatio == undefined) {
-		devicePixelRatio = 1;
+	jam.devicePixelRatio = window.jam.devicePixelRatio;
+	if (jam.devicePixelRatio == undefined) {
+		jam.devicePixelRatio = 1;
 	}
-	maxScreenDimension = maxScreenDimension * devicePixelRatio;
+	maxScreenDimension = maxScreenDimension * jam.devicePixelRatio;
 	if (maxScreenDimension > 900) {
-		imageSRCsbyIDs = largeImageSRCsbyIDs;
+		jam.imageSRCsbyIDs = largeImageSRCsbyIDs;
 	} else {
-		imageSRCsbyIDs = mediumImageSRCsbyIDs;
+		jam.imageSRCsbyIDs = mediumImageSRCsbyIDs;
 	}
 	jQuery('#image-for-fullscreen').css({
-		'width': screenWidth,
-		'height': screenHeight
+		'width': jam.screenWidth,
+		'height': jam.screenHeight
 	});
-	addHTML = '<span class="helper"></span>';
-	for (i = 0; i < imageOrderOnPageByID.length; i++) {
-		addHTML = addHTML + '<img id="' + imageOrderOnPageByID[i] + '" src="' + imageSRCsbyIDs[imageOrderOnPageByID[i]] + '" />';
+	jam.addHTML = '<span class="helper"></span>';
+	for (i = 0; i < jam.imageOrderOnPageByID.length; i++) {
+		jam.addHTML = jam.addHTML + '<img id="' + jam.imageOrderOnPageByID[i] + '" src="' + jam.imageSRCsbyIDs[jam.imageOrderOnPageByID[i]] + '" />';
 	}
-	jQuery('#image-list').html(addHTML);
+	jQuery('#image-list').html(jam.addHTML);
 	// set a height so the css centering technique works
-	jQuery('#image-list').css('height', screenHeight - jQuery('#image-for-fullscreen header').outerHeight(true) - jQuery('#image-for-fullscreen nav').outerHeight(true));
-	for (i = 0; i < imageOrderOnPageByID.length; i++) {
-		jQuery('#'+imageOrderOnPageByID[i]).css({
+	jQuery('#image-list').css('height', jam.screenHeight - jQuery('#image-for-fullscreen header').outerHeight(true) - jQuery('#image-for-fullscreen nav').outerHeight(true));
+	for (i = 0; i < jam.imageOrderOnPageByID.length; i++) {
+		jQuery('#'+jam.imageOrderOnPageByID[i]).css({
 			'vertical-align': 'middle',
 			'display': 'none',
-			'max-width': screenWidth*.9,
-			'max-height': screenHeight - jQuery('#image-for-fullscreen header').outerHeight(true) - jQuery('#image-for-fullscreen nav').outerHeight(true)
+			'max-width': jam.screenWidth*.9,
+			'max-height': jam.screenHeight - jQuery('#image-for-fullscreen header').outerHeight(true) - jQuery('#image-for-fullscreen nav').outerHeight(true)
 		});
 	}
 }
 
-var addImageClickHandler = function () {
+jam.addImageClickHandler = function () {
 	jQuery('#the-content img').css('cursor','pointer');
 	jQuery('#the-content img').click( function imageClicked(event) {
-		classList = jQuery(event.target).attr('class').split(/\s+/);
-		for (i = 0; i < classList.length; i++) {
-			if (classList[i].indexOf('wp-image-')==0) {
-				classSplit = classList[i].split('-');
-				imageID = classSplit[2];
+		jam.classList = jQuery(event.target).attr('class').split(/\s+/);
+		for (i = 0; i < jam.classList.length; i++) {
+			if (jam.classList[i].indexOf('wp-image-')==0) {
+				jam.classSplit = jam.classList[i].split('-');
+				jam.imageID = jam.classSplit[2];
 			}
 		}
-		for (i = 0; i < imageOrderOnPageByID.length; i++) {
-			if (imageOrderOnPageByID[i] == imageID) {
-				imageOrder = i;
+		for (i = 0; i < jam.imageOrderOnPageByID.length; i++) {
+			if (jam.imageOrderOnPageByID[i] == jam.imageID) {
+				jam.imageOrder = i;
 			}
 		}
-		jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','inline');
-		setFullscreenNav();
+		jQuery('#'+jam.imageOrderOnPageByID[jam.imageOrder]).css('display','inline');
+		jam.setFullscreenNav();
 		jQuery('#image-for-fullscreen').css('display','block');
 		jQuery('#image-for-fullscreen')[0].addEventListener(screenfull.raw.fullscreenerror, function() {
-			removeImageClickHandler();
+			jam.removeImageClickHandler();
 		});
 		screenfull.request(jQuery('#image-for-fullscreen')[0]);
 	});
 }
 
-var removeImageClickHandler = function () {
+jam.removeImageClickHandler = function () {
 	jQuery('#the-content img').off('click');
 	jQuery('#the-content img').css('cursor','auto');
 	jQuery('#image-for-fullscreen').css('display','none');
 }
 
-var setFullscreenNav = function () {
-	if (imageOrderOnPageByID.length == 1) {
+jam.setFullscreenNav = function () {
+	if (jam.imageOrderOnPageByID.length == 1) {
 		jQuery('#image-for-fullscreen #post-nav').css('visibility','hidden');
 	} else {
-		if (imageOrder == 0) {
+		if (jam.imageOrder == 0) {
 			jQuery('#image-prev').css('visibility','hidden');
 		} else {
 			jQuery('#image-prev').css('visibility','visible');
 		}
-		if (imageOrder == imageOrderOnPageByID.length-1) {
+		if (jam.imageOrder == jam.imageOrderOnPageByID.length-1) {
 			jQuery('#image-next').css('visibility','hidden');
 		} else {
 			jQuery('#image-next').css('visibility','visible');
@@ -121,57 +124,57 @@ var setFullscreenNav = function () {
 	}
 }
 
-var addExitFullscreen = function () {
+jam.addExitFullscreen = function () {
 	jQuery('#image-for-fullscreen')[0].addEventListener(screenfull.raw.fullscreenchange, function() {
 		if (screenfull.isFullscreen) {
-			jQuery(document).keyup(fullscreenKeyPress);
+			jQuery(document).keyup(jam.fullscreenKeyPress);
 		}
 		if (!screenfull.isFullscreen) {
-			jQuery(document).unbind("keyup", fullscreenKeyPress);
-			jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','none');
+			jQuery(document).unbind("keyup", jam.fullscreenKeyPress);
+			jQuery('#'+jam.imageOrderOnPageByID[jam.imageOrder]).css('display','none');
 			jQuery('#image-for-fullscreen').css('display','none');
 		}
 	});
 }
 
-var fullscreenKeyPress = function (e) {
+jam.fullscreenKeyPress = function (e) {
 	if (e.keyCode == 39 || e.keyCode == 190) {
-		nextClicked();
+		jam.nextClicked();
 	}
 	if (e.keyCode == 37 || e.keyCode == 188) {
-		prevClicked();
+		jam.prevClicked();
 	}
 }
 
-var addFullscreenNavClickHandler = function () {
+jam.addFullscreenNavClickHandler = function () {
 	jQuery('#post-nav').click( function navClicked(event) {
 		if (event.target.id == 'image-prev') {
-			prevClicked();
+			jam.prevClicked();
 		} else if (event.target.id == 'image-next') {
-			nextClicked();
+			jam.nextClicked();
 		}
 	});
 }
 
-var prevClicked = function () {
-	if (imageOrder > 0) {
-		jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','none');
-		imageOrder = imageOrder - 1;
-		jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','inline');
+jam.prevClicked = function () {
+	if (jam.imageOrder > 0) {
+		jQuery('#'+jam.imageOrderOnPageByID[jam.imageOrder]).css('display','none');
+		jam.imageOrder = jam.imageOrder - 1;
+		jQuery('#'+jam.imageOrderOnPageByID[jam.imageOrder]).css('display','inline');
 	}
-	setFullscreenNav();	
+	jam.setFullscreenNav();	
 }
 
-var nextClicked = function () {
-	if (imageOrder < imageOrderOnPageByID.length-1) {
-		jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','none');
-		imageOrder = imageOrder + 1;
-		jQuery('#'+imageOrderOnPageByID[imageOrder]).css('display','inline');
+jam.nextClicked = function () {
+	if (jam.imageOrder < jam.imageOrderOnPageByID.length-1) {
+		jQuery('#'+jam.imageOrderOnPageByID[jam.imageOrder]).css('display','none');
+		jam.imageOrder = jam.imageOrder + 1;
+		jQuery('#'+jam.imageOrderOnPageByID[jam.imageOrder]).css('display','inline');
 	}
-	setFullscreenNav();
+	jam.setFullscreenNav();
 }
 
-var addFullscreenIcon = function () {
+jam.addFullscreenIcon = function () {
 	jQuery('#the-content img').hover(
 		function() {
 			var positionLeft = ((700 - jQuery(this).width())/2)+5;
@@ -185,25 +188,25 @@ var addFullscreenIcon = function () {
 	);
 }
 
-var singleConstructor = function() {
+jam.singleConstructor = function() {
 	if (screenfull.enabled) {
 		// get an array of images in the content of the page by ID by order on page
-		getImagesByID();
+		jam.getImagesByID();
 		// add fullscreen images to the page
-		addFullscreenImages();
+		jam.addFullscreenImages();
 		// add a click handler to take images fullscreen
-		addImageClickHandler();
+		jam.addImageClickHandler();
 		// add leaving fullscreen handler
-		addExitFullscreen();
+		jam.addExitFullscreen();
 		// add image rollover
-		addFullscreenIcon();
+		jam.addFullscreenIcon();
 		// add the fullscreen nav click handler
-		addFullscreenNavClickHandler();
+		jam.addFullscreenNavClickHandler();
 	}
 }
 
 jQuery(document).ready(function() {
 	if (jQuery('body').hasClass('single-format-gallery')) {
-		singleConstructor();
+		jam.singleConstructor();
 	}
 });

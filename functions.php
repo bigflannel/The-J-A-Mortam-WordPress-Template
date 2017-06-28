@@ -24,6 +24,7 @@
 			if (!isset($content_width)) {
 				$content_width = 700;
 			}
+			add_theme_support('title-tag');
 			add_theme_support('post-thumbnails');
 			add_theme_support('automatic-feed-links');
 			add_theme_support('post-formats', array('gallery'));
@@ -39,6 +40,7 @@
 				'uploads'                => true,
 			);
 			add_theme_support( 'custom-header', $customHeaderDefaults );
+			add_editor_style( 'editor-style.css' );
 			load_theme_textdomain('the-j-a-mortram');
 			register_nav_menus(array(
 				'header' => __('Header','the-j-a-mortram'),
@@ -102,31 +104,6 @@
 	
 	add_action( 'wp_enqueue_scripts', 'jam_script_enqueuer' );
 
-	/**
-	 * set the title meta tag
-	 *
-	 */
-	 
-	if (!function_exists('jam_meta_title_tag')) { 
-		function jam_meta_title_tag( $title, $sep ) {
-			global $paged, $page;
-			if ( is_feed() ) {
-				return $title;
-			}	
-			$title .= get_bloginfo( 'name' );
-			$site_description = get_bloginfo( 'description', 'display' );
-			if ( $site_description && ( is_home() || is_front_page() ) ) {
-				$title = "$title $sep $site_description";
-			}	
-			if ( $paged >= 2 || $page >= 2 ) {
-				$title = "$title $sep " . sprintf( __( 'Page %s', 'the-j-a-mortram' ), max( $paged, $page ) );
-			}
-			return $title;
-		}
-	}
-	
-	add_filter( 'wp_title', 'jam_meta_title_tag', 10, 2 );
-	
 	/**
 	 * add css class to body
 	 *
@@ -287,6 +264,9 @@
 	
 	if (!function_exists('jam_register_options')) {
 		function jam_register_options() {
+			// add_editor_style font
+			add_editor_style( jam_slug_fonts_url() );
+			// add_editor_style stylesheet
 		    register_setting( 'jam_theme_options', 'jam_options', 'jam_validate_options' );
 		}
 	}
