@@ -4,7 +4,7 @@ Theme URI: 		http://bigflannel.com/2013/07/the-j-a-mortram-wordpress-theme/
 Description: 	A simple, elegant one column template with a fullscreen image slideshow. Designed for photo stories.
 License:		GNU General Public License v2
 License URI:	http://www.gnu.org/licenses/gpl-2.0.html
-Version: 		1.21
+Version: 		1.22
 Author: 		Mike Hartley
 Author URI: 	http://bigflannel.com
 Tags: 			one-column, custom-header, custom-menu, footer-widgets, featured-images, post-formats, theme-options, threaded-comments, translation-ready, blog, photography
@@ -282,6 +282,9 @@ div.widget {
 	text-transform: uppercase;
 	text-align: center;
 	margin: 1em 0 0 0;
+}
+#nav-tags h3 {
+	text-align: center;
 }
 /* comments */
 #comments {

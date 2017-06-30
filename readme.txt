@@ -52,6 +52,12 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.22
+
+June 30,2017
+
+* centered display of tags on single post
+
 ### 1.21
 
 June 30,2017

@@ -31,7 +31,9 @@
 				
 				<?php wp_link_pages(); ?> 
 				
-				<h3><?php the_tags( __('','the-j-a-mortram'), ', ', '' ); ?></h3>
+				<nav id="nav-tags">
+					<h3><?php the_tags( __('','the-j-a-mortram'), ', ', '' ); ?></h3>
+				</nav>
 				
 				<nav id="nav-categories" class="meta group">
 					<?php
