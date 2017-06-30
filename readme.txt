@@ -52,6 +52,13 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.21
+
+June 30,2017
+
+* amended single post to display categories post is in only and made uppercase
+* amended single post to display tags with no additional text
+
 ### 1.20
 
 June 25, 2017

@@ -31,19 +31,13 @@
 				
 				<?php wp_link_pages(); ?> 
 				
-				<h3><?php the_tags( __('More stories about ','the-j-a-mortram'), ', ', '' ); ?></h3>
+				<h3><?php the_tags( __('','the-j-a-mortram'), ', ', '' ); ?></h3>
 				
 				<nav id="nav-categories" class="meta group">
-					<ul>
-						<?php 
-							$args = array(
-								'title_li' => __('','the-j-a-mortram'),
-								'hide_empty' => 1,
-								'show_option_none'   => __('','the-j-a-mortram')
-							);
-							wp_list_categories($args);
-						?>
-					</ul>
+					<?php
+						$categories_list = get_the_category_list( __( ', ', 'the-j-a-mortram' ) );
+						printf( $categories_list );
+					?>
 				</nav>
 				
 				<?php comments_template( '', true ); ?>
