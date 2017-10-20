@@ -40,7 +40,7 @@ Use this format to activate fullscreen image display on a post (in those browser
 
 ### Menu Options
 
-The theme can display three menus, one below the header ('Header') and two before the page footer ('Donate' and 'Footer'). In the footer, if it exists, 'Donate' is shown first, then 'Footer'. 'Footer' displays the default menu if none are set.
+The theme can display three menus, one below the header ('Header') and two before the page footer ('Donate' and 'Footer'). In the footer, if it exists, 'Donate' is shown first, then 'Footer'. 'Footer' displays the default menu if none are set. Current items or their ancestors are marked in the menu with a bottom border. Drop-down rollover menus are supported: when using these, be mindful to make the top link a custom link with target URL '#' so mobile users can click to open the drop-down.
 
 ### Widget Options
 
@@ -52,9 +52,18 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.23
+
+October 20, 2017
+
+* added css to reset display of images in content on home page
+* amended code to display featured image on a category page, added class 'featured-image', amended CSS to only apply to featured image
+* added code to display css based drop-down menus
+* added code for bottom border on current or ancestors of current navigation 
+
 ### 1.22
 
-June 30,2017
+June 30, 2017
 
 * centered display of tags on single post
 

@@ -30,5 +30,10 @@
 		
 		<?php wp_head(); ?>
 		
+		<?php 
+			// adds sharing tags and meta-description tag
+			thejamortram_sharing_meta_data();
+		?>
+		
 	</head>
 	<body <?php body_class(); ?>>

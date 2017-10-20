@@ -338,6 +338,10 @@
 	
 	add_action( 'admin_print_styles-appearance_page_custom-header', 'jam_admin_custom_header_fonts' );
 	
+	/**
+	 * Load sharing meta data file.
+	 */
+	require get_template_directory() . '/inc/sharing-meta.php';
 	
 	
 	
