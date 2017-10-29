@@ -52,6 +52,13 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.24
+
+October 29,2017
+
+* amended code to display featured image on a category page, added class 'featured-image', amended CSS to only apply to featured image on mobile also
+* removed all title tags from links and images
+
 ### 1.23
 
 October 20, 2017

@@ -19,12 +19,12 @@
 		<li class="group">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php if (get_the_title() == '') { ?>
-					<div class="meta post-meta"><span class="post-date"><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_date(); ?></a> </span><span class="post-comments"><?php comments_popup_link(__('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', ''); ?></span></div>
+					<div class="meta post-meta"><span class="post-date"><a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark"><?php the_date(); ?></a> </span><span class="post-comments"><?php comments_popup_link(__('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', ''); ?></span></div>
 				<?php } else { ?>
-					<h1><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+					<h1><a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 					<div class="meta post-meta"><span class="post-date"><?php the_date(); ?> </span><span class="post-comments"><?php comments_popup_link(__('Leave a Comment','the-j-a-mortram'), __('1 Comment','the-j-a-mortram'), __('% Comments','the-j-a-mortram'), '', ''); ?></span></div>
 				<?php } ?>				<?php if ( has_post_thumbnail() ) { ?>
-					<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_post_thumbnail('thumbnail', array( 'class' => 'featured-image', 'alt' => get_post(get_post_thumbnail_id())->post_title ) ); ?></a>
+					<a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark"><?php the_post_thumbnail('thumbnail', array( 'class' => 'featured-image', 'alt' => get_post(get_post_thumbnail_id())->post_title ) ); ?></a>
 				<?php } ?>
 				<?php the_excerpt(); ?>	
 			</article>
