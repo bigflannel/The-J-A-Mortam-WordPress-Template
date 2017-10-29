@@ -152,7 +152,6 @@ header h2 {
 	font-size: 1em;
 	top: -2.4em;
 }
-
 /* navigation menus with drop-down functionality */
 nav {
 	text-align: center;
@@ -193,17 +192,18 @@ nav ul ul {
 	left: -999em;
 	z-index: 99999;
 	background-color: #f0f0f0;
-	width: 17em;
+	width: 200%;
 }
 nav ul ul ul {
 	left: -999em;
 	top: 0;
+	width: 100%;
 }
 nav ul ul a {
 	padding: 0 1em 0 .6em;
 }
 nav ul ul li {
-	width: 17em;
+	width: 100%;
 }
 nav li:hover > a,
 nav li.focus > a {

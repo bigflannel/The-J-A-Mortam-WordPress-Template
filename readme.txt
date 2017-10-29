@@ -58,6 +58,7 @@ October 29,2017
 
 * amended code to display featured image on a category page, added class 'featured-image', amended CSS to only apply to featured image on mobile also
 * removed all title tags from links and images
+* further amended the menu drop-down css
 
 ### 1.23
 
