@@ -52,6 +52,12 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.25
+
+November 15, 2017
+
+* amended CSS for display of category page navigation, MORE was sitting above PREV, they are now on the same line
+
 ### 1.24
 
 October 29,2017
