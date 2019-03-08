@@ -4,7 +4,7 @@ Theme URI: 		http://bigflannel.com/2013/07/the-j-a-mortram-wordpress-theme/
 Description: 	A simple, elegant one column template with a fullscreen image slideshow. Designed for photo stories.
 License:		GNU General Public License v2
 License URI:	http://www.gnu.org/licenses/gpl-2.0.html
-Version: 		1.25
+Version: 		1.26
 Author: 		Mike Hartley
 Author URI: 	http://bigflannel.com
 Tags: 			one-column, custom-header, custom-menu, footer-widgets, featured-images, post-formats, theme-options, threaded-comments, translation-ready, blog, photography
@@ -12,7 +12,7 @@ Text Domain:	the-j-a-mortram
 */
 
 
-/* ---------------------------------------------------------------------------------------------------------- 
+/* ----------------------------------------------------------------------------------------------------------
 01 defaults
 ---------------------------------------------------------------------------------------------------------- */
 
@@ -83,7 +83,7 @@ blockquote {
 }
 
 
-/* ---------------------------------------------------------------------------------------------------------- 
+/* ----------------------------------------------------------------------------------------------------------
 02 typography
 ---------------------------------------------------------------------------------------------------------- */
 
@@ -113,10 +113,10 @@ h1 {
 	width: 90%;
 	margin: 1em auto;
 }
-h2, 
-h3, 
-h4, 
-h5, 
+h2,
+h3,
+h4,
+h5,
 h6 {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
@@ -128,7 +128,7 @@ h6 {
 }
 
 
-/* ---------------------------------------------------------------------------------------------------------- 
+/* ----------------------------------------------------------------------------------------------------------
 03 Site styles
 ---------------------------------------------------------------------------------------------------------- */
 
@@ -144,7 +144,7 @@ body {
 header {
 	text-align: center;
 }
-header h1 {	
+header h1 {
 	font-size: 3em;
 }
 header h2 {
@@ -160,8 +160,8 @@ nav {
 nav::after,
 nav ul::after {
    content: " ";
-   display: block; 
-   height: 0; 
+   display: block;
+   height: 0;
    clear: both;
 }
 nav ul {
@@ -302,7 +302,7 @@ div.widget {
 	max-width: 100%;
 }
 .wp-caption-text {
-	font-size: .875em;	
+	font-size: .875em;
 }
 #the-content p {
 	position: relative;
@@ -317,7 +317,7 @@ div.widget {
 	top: 5px;
 	left: 5px;
 }
-#image-for-fullscreen { 
+#image-for-fullscreen {
 	display: none;
 	text-align: center;
 }
@@ -326,23 +326,23 @@ div.widget {
     height: 100%;
     vertical-align: middle;
 }
-#image-for-fullscreen:-webkit-full-screen { 
+#image-for-fullscreen:-webkit-full-screen {
 	background-color: #f8f8f8;
 }
-#image-for-fullscreen:-moz-full-screen { 
+#image-for-fullscreen:-moz-full-screen {
 	background-color: #f8f8f8;
 }
-#image-for-fullscreen:-ms-fullscreen { 
+#image-for-fullscreen:-ms-fullscreen {
 	background-color: #f8f8f8;
 }
-#image-for-fullscreen:fullscreen { 
+#image-for-fullscreen:fullscreen {
 	background-color: #f8f8f8;
 }
-#image-for-fullscreen header { 
+#image-for-fullscreen header {
 	padding-top: 32px;
 	height: 80px;
 }
-#image-for-fullscreen h1 { 
+#image-for-fullscreen h1 {
 	font-size: 1.4em;
 }
 #image-for-fullscreen nav {
@@ -387,7 +387,7 @@ div.widget {
 	position: absolute;
 	left: 0;
 	top: 0;
-	max-width: 4em;	
+	max-width: 4em;
 }
 #comments article {
 	padding: 0 0 0 5em;
@@ -441,7 +441,7 @@ ol li {
 }
 
 
-/* ---------------------------------------------------------------------------------------------------------- 
+/* ----------------------------------------------------------------------------------------------------------
 04 media queries
 ---------------------------------------------------------------------------------------------------------- */
 
@@ -466,7 +466,7 @@ ol li {
 }
 
 
-/* ---------------------------------------------------------------------------------------------------------- 
+/* ----------------------------------------------------------------------------------------------------------
 05 additional wordpress css you might use
 ---------------------------------------------------------------------------------------------------------- */
 
