@@ -21,6 +21,13 @@ Licensed under the GNU General Public License
 
 # Features and Use
 
+### Classic Editor
+
+The theme is currently only tested with the Classic Editor:
+https://wordpress.org/plugins/classic-editor/
+
+It does appear to work with a Classic Formatting Box using the Gutenberg Editor, but I am not sure to what extent. I will be updating it in the future to be compatible with Gutenberg.
+
 ### WordPress Media Settings
 
 Recommended settings:
@@ -52,6 +59,13 @@ Set the text displayed after the footer copyright text (© 2013) using theme set
 
 # Changelog
 
+### 1.26
+
+March 8th, 2019
+
+* added instructions in readme.txt to use Classic Editor plugin
+* updated screenfull.js to fix a js error when calling fullscreen
+
 ### 1.25
 
 November 15, 2017
@@ -73,7 +87,7 @@ October 20, 2017
 * added css to reset display of images in content on home page
 * amended code to display featured image on a category page, added class 'featured-image', amended CSS to only apply to featured image
 * added code to display css based drop-down menus
-* added code for bottom border on current or ancestors of current navigation 
+* added code for bottom border on current or ancestors of current navigation
 
 ### 1.22
 
